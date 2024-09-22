@@ -6,8 +6,7 @@ import Dienstleistungen from "../../components/Dienstleistungen/Dienstleistungen
 import CallToAction from "../../components/CallToAction/CallToAction";
 import Faq from "../../components/FAQ/Faq";
 import Certifications from "../../components/Certifications/Certifications";
-import Contact from "../../components/Contact/Contact";
-
+import Footer from "../../components/Footer/Footer";
 const Home = () => {
   return (
     <div className={styles.homeContainer}>
@@ -17,7 +16,7 @@ const Home = () => {
       <CallToAction />
       <Faq />
       <Certifications />
-      <Contact />
+      <Footer />
     </div>
   );
 };

@@ -20,7 +20,7 @@ const Hero = () => {
           Ich bin Alexandru Gheorghe, ein Webentwickler, der sich auf die
           Erstellung moderner und responsiver Webanwendungen spezialisiert hat.
           Lassen Sie uns zusammenarbeiten, um benutzerfreundliche Websites zu
-          entwickeln, die Ergebnisse liefern.
+          entwickeln.
         </p>
         <button className={styles.ctaButton}>Meine Arbeit entdecken</button>
       </div>
