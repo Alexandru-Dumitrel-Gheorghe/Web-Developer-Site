@@ -1,0 +1,82 @@
+.aboutSkills {
+  padding: var(--spacing-large) var(--spacing-medium);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  text-align: center;
+}
+
+.title {
+  font-size: var(--font-size-title);
+  color: var(--color-text); /* Title in white using variable */
+  margin-bottom: var(--spacing-large);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: var(--spacing-large);
+}
+
+/* Blue underline for the title */
+.title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-primary); /* Blue line */
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.skillContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-medium);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skillCard {
+  background: var(--color-card-background);
+  padding: var(--spacing-medium);
+  border-radius: var(--border-radius);
+  text-align: center;
+  color: var(--color-text);
+  width: calc(33% - var(--spacing-medium));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--box-shadow-normal);
+}
+
+.skillCard:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.skillCard h3 {
+  font-size: var(--font-size-card-title); /* Title in white */
+  color: var(--color-text); /* Use text color variable */
+  margin-bottom: var(--spacing-small);
+}
+
+.skillCard p {
+  font-size: var(--font-size-description);
+  color: var(--color-subtext); /* Subtext color */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .skillCard {
+    width: calc(50% - var(--spacing-medium)); /* Two cards per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .skillCard {
+    width: 100%; /* Full width for mobile */
+    margin-bottom: var(--spacing-medium);
+  }
+
+  .title::after {
+    width: 60px; /* Smaller underline for mobile */
+  }
+}
