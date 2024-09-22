@@ -5,14 +5,15 @@ import AboutSkills from "../../components/InfoComponents/AboutSkills"; // Correc
 import AboutExperience from "../../components/InfoComponents/AboutExperience"; // Corrected path
 import Footer from "../../components/Footer/Footer"; // Corrected path
 import styles from "./About.module.css";
+import CallToAction from "../../components/CallToAction/CallToAction"; // Corrected path
 
 const About = () => {
   return (
     <div className={styles.aboutPage}>
       <AboutMain />
       <AboutExperience />
+      <CallToAction />
       <AboutSkills />
-
       <Footer />
     </div>
   );
