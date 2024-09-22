@@ -1,0 +1,4 @@
+.container {
+  padding: 100px 20px; /* Adaugă padding pentru a compensa navbar-ul fixat */
+  text-align: center;
+}

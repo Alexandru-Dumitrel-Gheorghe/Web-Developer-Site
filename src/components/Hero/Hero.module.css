@@ -1,0 +1,100 @@
+.heroContainer {
+  display: flex;
+  align-items: center; /* Centrează vertical imaginea și textul */
+  justify-content: center;
+  flex-direction: column; /* Pentru ecrane mici, imaginea și textul sunt într-o coloană */
+  padding: 50px 20px;
+  width: 100%;
+  min-height: 100vh; /* Ocupă toată înălțimea vizibilă */
+  background-color: var(--color-background); /* Fundal întunecat */
+  box-sizing: border-box;
+}
+
+.textContainer {
+  max-width: 600px;
+  color: white;
+  text-align: center; /* Centrează textul pe ecrane mici */
+}
+
+h1 {
+  font-size: 2.5rem; /* Mărime adecvată pentru titlu */
+  color: white;
+  margin-top: 20px; /* Apropiem titlul de imagine */
+  line-height: 1.2;
+  position: relative; /* Pentru a adăuga linia sub titlu */
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-primary); /* Folosește culoarea butonului */
+  margin: 20px auto 0; /* Spațiu între titlu și linie */
+  border-radius: 2px;
+}
+
+p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.ctaButton {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.ctaButton:hover {
+  background-color: var(--color-secondary);
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.profileImage {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 769px) {
+  .heroContainer {
+    flex-direction: row; /* Imaginea și textul pe un rând pe ecrane mari */
+    justify-content: center; /* Centrează conținutul orizontal */
+    align-items: center; /* Centrează vertical conținutul */
+    gap: 50px; /* Mai mult spațiu între text și imagine */
+    padding: 100px 50px;
+  }
+
+  .textContainer {
+    text-align: left; /* Text aliniat la stânga pentru ecrane mari */
+  }
+
+  .profileImage {
+    width: 250px; /* Dimensiuni mai mari pentru imagine pe ecrane mari */
+    height: 250px;
+  }
+
+  h1 {
+    font-size: 3rem; /* Dimensiune mai mare pentru titlu pe ecrane mari */
+  }
+
+  p {
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,134 @@
+/* Contact.module.css */
+
+.contactSection {
+  padding: var(--spacing-large) var(--spacing-medium);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-large);
+}
+
+.logoContainer {
+  width: 100%;
+  text-align: center;
+  margin-bottom: var(--spacing-medium); /* Am redus spațiul de jos */
+}
+
+.logo {
+  max-width: 300px; /* Am micșorat dimensiunea logo-ului */
+  width: 100%;
+  height: auto;
+}
+
+.heading {
+  font-size: 1.8rem;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-medium);
+}
+
+.kontaktdaten,
+.quickLinks,
+.socialMedia {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-small);
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+
+.contactItem a {
+  color: var(--color-text);
+  font-size: var(--font-size-description);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contactItem a:hover {
+  color: var(--color-secondary);
+}
+
+.quickLinks ul {
+  list-style: none;
+  padding: 0;
+}
+
+.quickLinks li {
+  margin-bottom: var(--spacing-small);
+}
+
+.quickLinks a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.quickLinks a:hover {
+  color: var(--color-secondary);
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-medium);
+}
+
+.socialLinks a {
+  color: var(--color-text);
+  font-size: 2rem;
+  transition: color 0.3s ease;
+}
+
+.socialLinks a:hover {
+  color: var(--color-secondary);
+}
+
+/* Responsivitate */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .kontaktdaten,
+  .quickLinks,
+  .socialMedia {
+    flex: 1 1 100%;
+    margin-bottom: var(--spacing-large);
+  }
+
+  .logo {
+    max-width: 250px; /* Mai mic pe ecrane mici */
+  }
+
+  .logoContainer {
+    margin-bottom: var(
+      --spacing-medium
+    ); /* Asigură spațierea corectă pe mobil */
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+}

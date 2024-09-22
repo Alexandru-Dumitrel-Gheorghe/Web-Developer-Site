@@ -1,0 +1,86 @@
+.callToActionSection {
+  position: relative;
+  background: var(--color-background);
+  background: url("https://images.unsplash.com/photo-1607798748738-b15c40d33d57?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+    no-repeat center center/cover;
+  color: var(--color-text);
+  text-align: center;
+  padding: var(--spacing-large) 0;
+  overflow: hidden;
+}
+
+.overlay {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+  padding: var(--spacing-large) var(--spacing-medium);
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.content h2 {
+  font-size: var(--font-size-title);
+  margin-bottom: var(--spacing-medium);
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+/* Add a subtle line under the title */
+.content h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-primary); /* Same as button color */
+  margin: var(--spacing-small) auto 0;
+  border-radius: 2px;
+}
+
+.content p {
+  font-size: var(--font-size-description);
+  margin-bottom: var(--spacing-large);
+  line-height: 1.6;
+}
+
+.ctaButton {
+  font-size: var(--font-size-button);
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  padding: var(--spacing-small) var(--spacing-medium);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: var(--box-shadow-normal);
+}
+
+.ctaButton:hover {
+  background-color: var(--color-secondary);
+  transform: scale(1.05);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* Animation for content */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content h2 {
+    font-size: 2rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+}

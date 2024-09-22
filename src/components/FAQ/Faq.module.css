@@ -1,0 +1,140 @@
+.faqSection {
+  padding: var(--spacing-large) var(--spacing-medium);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  transition: background-color 0.3s ease;
+}
+
+.heading {
+  font-size: var(--font-size-title);
+  text-align: center;
+  margin-bottom: var(--spacing-large);
+  letter-spacing: 2px;
+  position: relative; /* Necessary for the line to be positioned correctly */
+}
+
+/* Linie sub titlu */
+.heading::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-primary); /* Same color as the button */
+  margin: 0 auto;
+  margin-top: var(--spacing-small);
+  border-radius: 2px;
+}
+
+.faqContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faqItem {
+  border-bottom: 1px solid var(--color-subtext);
+  padding: var(--spacing-medium) 0;
+  transition: background-color 0.3s ease;
+}
+
+.faqItem.active {
+  background-color: var(--color-card-background);
+}
+
+.questionButton {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  color: var(--color-text);
+  font-size: var(--font-size-card-title);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.questionButton:hover {
+  color: var(--color-primary);
+}
+
+.questionContent {
+  display: flex;
+  align-items: center;
+}
+
+.questionIcon {
+  margin-right: 10px;
+  color: var(--color-secondary);
+}
+
+.chevronIcon {
+  font-size: 1.2rem;
+}
+
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.answerOpen {
+  max-height: 500px; /* Adaptează în funcție de conținut */
+}
+
+.answer p {
+  margin: var(--spacing-small) 0 0 0;
+  font-size: var(--font-size-description);
+  line-height: 1.6;
+  color: var(--color-subtext);
+}
+
+/* Media queries pentru ecrane mai mici */
+@media (max-width: 768px) {
+  .faqSection {
+    padding: var(--spacing-medium) var(--spacing-small);
+  }
+
+  .heading {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-medium);
+  }
+
+  .faqContainer {
+    max-width: 100%;
+    padding: 0 var(--spacing-small);
+  }
+
+  .questionButton {
+    font-size: 1.2rem;
+  }
+
+  .questionIcon,
+  .chevronIcon {
+    font-size: 1rem;
+  }
+
+  .answer p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .questionButton {
+    font-size: 1rem;
+  }
+
+  .questionIcon,
+  .chevronIcon {
+    font-size: 0.9rem;
+  }
+
+  .answer p {
+    font-size: 0.85rem;
+  }
+}

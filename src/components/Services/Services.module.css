@@ -1,0 +1,139 @@
+.servicesContainer {
+  padding: var(--spacing-large) var(--spacing-medium);
+  color: var(--color-text);
+  text-align: center;
+}
+
+.heading {
+  font-size: var(--font-size-title);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-large);
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-medium);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--color-card-background);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-medium);
+  text-align: center;
+  color: var(--color-text);
+  position: relative;
+  border: 3px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--box-shadow-normal);
+  flex: 1 1 calc(30% - var(--spacing-medium));
+  max-width: calc(30% - var(--spacing-medium));
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  transform: skewX(-25deg);
+  transition: all 0.5s ease;
+}
+
+.card:hover::before {
+  left: 150%;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.profileImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto var(--spacing-medium) auto;
+  background-color: var(--color-primary);
+  padding: var(--spacing-small);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.profileImage img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.cardTitle {
+  font-size: var(--font-size-card-title);
+  font-weight: 700;
+  margin: var(--spacing-small) 0;
+}
+
+.cardDescription {
+  font-size: var(--font-size-description);
+  color: var(--color-subtext);
+  margin-bottom: var(--spacing-medium);
+  line-height: 1.6;
+}
+
+.profileActions {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-small);
+}
+
+.primaryButton {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border-radius: 50px;
+  padding: var(--spacing-small) var(--spacing-medium);
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-button);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: var(--box-shadow-normal);
+}
+
+.primaryButton:hover {
+  background-color: var(--color-secondary);
+  transform: scale(1.05);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* Responsive Design */
+
+@media (max-width: 1024px) {
+  .card {
+    flex: 1 1 calc(45% - var(--spacing-medium));
+    max-width: calc(45% - var(--spacing-medium));
+  }
+}
+
+@media (max-width: 768px) {
+  .cardsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    flex: 1 1 100%;
+    max-width: 76%;
+    margin-bottom: var(--spacing-medium);
+  }
+
+  .profileImage {
+    width: 80px;
+    height: 80px;
+  }
+}

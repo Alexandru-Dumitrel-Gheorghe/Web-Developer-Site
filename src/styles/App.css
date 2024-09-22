@@ -1,0 +1,97 @@
+/* app.css */
+
+:root {
+  --font-primary: "Rubik", sans-serif;
+  --color-background: linear-gradient(
+    135deg,
+    #0d0d0d,
+    #0b1a30 40%,
+    #1b2028
+  ); /* Fundal negru cu nuanțe subtile de albastru */
+  --color-card-background: linear-gradient(
+    135deg,
+    #0d0d0d,
+    #0b1a30 40%,
+    #1b2028
+  ); /* Fundal card negru cu nuanțe de albastru */
+  --color-primary: #3772ff;
+  --color-secondary: #5587ff;
+  --color-text: #ffffff;
+  --color-subtext: #ccc;
+  --color-hover-shadow: rgba(0, 0, 0, 0.6);
+
+  --font-size-title: 2rem;
+  --font-size-card-title: 1.4rem;
+  --font-size-description: 1rem;
+  --font-size-button: 1rem;
+
+  --spacing-large: 50px;
+  --spacing-medium: 20px;
+  --spacing-small: 10px;
+
+  --border-radius: 16px;
+  --card-width: 22%;
+  --card-width-mobile: 78%;
+  --card-max-width-mobile: 400px;
+
+  --box-shadow-normal: 0 4px 15px rgba(0, 0, 0, 0.3);
+  --box-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  background: var(--color-background), #0d0d0d; /* Fundal gradient + fallback negru */
+  color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.card {
+  background: var(--color-card-background), #1b2028; /* Fundal gradient + fallback negru */
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-normal);
+  padding: var(--spacing-medium);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--box-shadow-hover);
+}
+
+.card-title {
+  font-size: var(--font-size-card-title);
+  color: var(--color-text);
+}
+
+.card-description {
+  font-size: var(--font-size-description);
+  color: var(--color-subtext);
+}
+
+.button {
+  font-size: var(--font-size-button);
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  padding: var(--spacing-small) var(--spacing-medium);
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--color-secondary);
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: var(--card-width-mobile);
+    max-width: var(--card-max-width-mobile);
+  }
+}

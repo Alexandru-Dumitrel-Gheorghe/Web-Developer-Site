@@ -1,0 +1,138 @@
+.certificationsSection {
+  padding: var(--spacing-large) var(--spacing-medium);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  text-align: center;
+}
+
+.heading {
+  font-size: var(--font-size-title);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-large);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  position: relative; /* Necessary for the line to be positioned correctly */
+}
+
+.heading::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-primary); /* Same color as the button */
+  margin: 0 auto;
+  margin-top: var(--spacing-small); /* Space between the title and the line */
+  border-radius: 2px;
+}
+
+.description {
+  font-size: var(--font-size-description);
+  margin-bottom: var(--spacing-large);
+  color: var(--color-subtext);
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.certificationsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-medium);
+}
+
+.certificationCard {
+  background: var(--color-card-background);
+  padding: var(--spacing-medium);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-normal);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 250px; /* Cardurile vor avea o lățime minimă de 250px */
+  max-width: 300px; /* Lățimea maximă a cardului */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificationCard:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: var(--spacing-small);
+}
+
+.certName {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-small);
+  color: var(--color-text);
+}
+
+.certDescription {
+  font-size: var(--font-size-description);
+  color: var(--color-subtext);
+  margin-bottom: var(--spacing-small);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .certificationCard {
+    flex: 1 1 200px; /* Lățimea minimă a cardului pe ecrane mai mici */
+  }
+
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .logo {
+    width: 90px;
+    height: 90px;
+  }
+
+  .certName {
+    font-size: 1.1rem;
+  }
+
+  .certDescription {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificationCard {
+    flex: 1 1 100%;
+    max-width: 300px; /* Limitează lățimea cardului pe ecrane mici */
+  }
+
+  .heading {
+    font-size: 1.6rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .certName {
+    font-size: 1rem;
+  }
+
+  .certDescription {
+    font-size: 0.85rem;
+  }
+}
