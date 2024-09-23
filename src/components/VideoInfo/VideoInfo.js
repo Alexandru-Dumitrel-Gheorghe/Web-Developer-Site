@@ -1,9 +1,42 @@
-// src/components/VideoInfo/VideoInfo.jsx
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import styles from "./VideoInfo.module.css";
-import videoSrc from "../../assets/test2.mp4"; // Importing the video from assets
+import videoSrc from "../../assets/test2.mp4";
 
 const VideoInfo = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+
+    const observerOptions = {
+      root: null, // Folosește viewport-ul browserului
+      rootMargin: "0px",
+      threshold: 0.5, // 50% din videoclip este vizibil
+    };
+
+    const handlePlay = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          videoElement.play();
+        } else {
+          videoElement.pause();
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handlePlay, observerOptions);
+
+    if (videoElement) {
+      observer.observe(videoElement);
+    }
+
+    return () => {
+      if (videoElement) {
+        observer.unobserve(videoElement);
+      }
+    };
+  }, []);
+
   return (
     <section className={styles.videoSection}>
       <div className={styles.container}>
@@ -21,10 +54,17 @@ const VideoInfo = () => {
           </div>
         </div>
         <div className={styles.videoWrapper}>
-          <video className={styles.video} controls autoPlay muted loop>
-            <source src={videoSrc} type="video/mp4" />{" "}
-            {/* Using the imported video */}
-            Your browser does not support the video tag.
+          <video
+            className={styles.video}
+            controls
+            autoPlay
+            muted
+            loop
+            playsInline
+            ref={videoRef}
+          >
+            <source src={videoSrc} type="video/mp4" />
+            Browserul tău nu suportă elementul video.
           </video>
         </div>
       </div>
