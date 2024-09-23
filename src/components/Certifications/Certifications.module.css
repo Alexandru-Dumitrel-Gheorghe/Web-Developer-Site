@@ -9,7 +9,6 @@
   font-size: var(--font-size-title);
   color: var(--color-text);
   margin-bottom: var(--spacing-large);
-  text-transform: uppercase;
   letter-spacing: 2px;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   position: relative; /* Necessary for the line to be positioned correctly */

@@ -1,0 +1,67 @@
+.scrollToTopButton {
+  position: fixed; /* Stick to the screen */
+  bottom: 30px; /* Distance from the bottom */
+  right: 30px; /* Distance from the right */
+  background-color: var(--color-primary); /* Use primary color */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 50%; /* Circular button */
+  width: 50px; /* Set width to make it round */
+  height: 50px; /* Set height to match width */
+  display: flex; /* Center the icon inside */
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Smooth shadow */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Hide until visible */
+  transform: scale(0.9); /* Slightly smaller when hidden */
+}
+
+.scrollToTopButton.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1); /* Scale up when visible */
+}
+
+.scrollToTopButton:hover {
+  background-color: var(
+    --color-secondary
+  ); /* Change to secondary color on hover */
+  transform: translateY(-8px); /* Slight upward movement on hover */
+}
+
+.scrollToTopButton svg {
+  width: 24px; /* Adjust icon size */
+  height: 24px;
+}
+
+@media (max-width: 768px) {
+  .scrollToTopButton {
+    bottom: 20px;
+    right: 20px;
+    width: 45px; /* Smaller button on mobile */
+    height: 45px;
+  }
+
+  .scrollToTopButton svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scrollToTopButton {
+    bottom: 15px;
+    right: 15px;
+    width: 40px; /* Further reduce button size on smaller screens */
+    height: 40px;
+  }
+
+  .scrollToTopButton svg {
+    width: 18px;
+    height: 18px;
+  }
+}

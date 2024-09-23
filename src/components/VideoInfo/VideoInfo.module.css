@@ -1,0 +1,92 @@
+/* src/components/VideoInfo/VideoInfo.module.css */
+.videoSection {
+  padding: var(--spacing-large) var(--spacing-medium);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textSection {
+  margin-bottom: var(--spacing-large);
+  text-align: center;
+  padding: 0 20px;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-medium);
+}
+
+.textWrapper {
+  margin-top: var(--spacing-medium);
+}
+
+.title {
+  font-size: var(--font-size-title);
+  color: var(--color-text); /* Keep title white */
+  margin-bottom: var(--spacing-small);
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Add text shadow for more depth */
+}
+
+.description {
+  font-size: 1.2rem;
+  color: var(--color-subtext);
+  margin-bottom: var(--spacing-small);
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+.extraInfo {
+  font-size: 1rem;
+  color: var(--color-subtext);
+  margin-top: var(--spacing-small);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.videoWrapper {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-normal);
+  margin-top: var(--spacing-medium);
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.video:hover {
+  box-shadow: var(--box-shadow-hover);
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .description,
+  .extraInfo {
+    font-size: 1rem;
+  }
+
+  .videoWrapper {
+    max-width: 100%;
+  }
+}

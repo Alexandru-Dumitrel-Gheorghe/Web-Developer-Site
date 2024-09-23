@@ -11,8 +11,8 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Projects from "./pages/Projects/Projects";
 import Contact from "./pages/Contact/Contact";
-import ScrollToTop from "./components/Diverse/ScrollToTop";
-import Loader from "./components/Diverse/Loader"; // Import the loader component
+import ScrollToTopButton from "./components/ScrollToTop/ScrollToTopButton";
+import Loader from "./components/Diverse/Loader";
 import "./styles/App.css";
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
     setLoading(true); // Start the loader as soon as the location changes
     const timer = setTimeout(() => {
       setLoading(false); // Delay page load to simulate loader
-    }, 500); // Adjust the delay time (1 second for example)
+    }, 500); // Adjust the delay time
 
     return () => clearTimeout(timer); // Cleanup timer
   }, [location]);
@@ -41,6 +41,7 @@ function App() {
             <Route path="/projekte" element={<Projects />} />
             <Route path="/kontakt" element={<Contact />} />
           </Routes>
+          <ScrollToTopButton /> {/* The ScrollToTop button */}
         </>
       )}
     </>
@@ -50,7 +51,6 @@ function App() {
 export default function AppWrapper() {
   return (
     <Router>
-      <ScrollToTop />
       <App />
     </Router>
   );

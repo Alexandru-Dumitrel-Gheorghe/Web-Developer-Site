@@ -34,10 +34,9 @@
 }
 
 .heading {
-  font-size: var(--font-size-title); /* Use variable for title size */
+  font-size: 24px; /* Use variable for title size */
   color: var(--color-text); /* Set title color to white */
   margin-bottom: var(--spacing-medium);
-  text-transform: uppercase; /* Make headings stand out */
   position: relative; /* For underline effect */
   margin-top: 40px;
 }

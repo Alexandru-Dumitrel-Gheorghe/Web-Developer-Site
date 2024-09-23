@@ -1,0 +1,142 @@
+.whyChooseMe {
+  padding: var(--spacing-large) var(--spacing-medium);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  text-align: center;
+  border-radius: var(--border-radius);
+}
+
+.title {
+  font-size: var(--font-size-title);
+  margin-bottom: var(--spacing-large);
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-primary);
+  margin: var(--spacing-small) auto;
+  border-radius: 2px;
+}
+
+/* Stilizare Carousel */
+.carouselContainer {
+  perspective: 1000px; /* Necesită pentru efectul 3D */
+}
+
+.carousel {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.carouselItem {
+  background: var(--color-card-background);
+  padding: var(--spacing-large);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-normal);
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  backface-visibility: hidden;
+}
+
+.carouselItem h3 {
+  font-size: var(--font-size-card-title);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-medium);
+}
+
+.carouselItem p {
+  font-size: var(--font-size-description);
+  color: var(--color-subtext);
+  line-height: 1.6;
+}
+
+/* Efecte 3D */
+.rotateNext {
+  transform: rotateY(-90deg);
+}
+
+.rotatePrev {
+  transform: rotateY(90deg);
+}
+
+/* Stilizare puncte */
+.dotsContainer {
+  margin-top: var(--spacing-medium);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: var(--color-subtext);
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.activeDot {
+  background-color: var(--color-primary);
+}
+
+.dot:hover {
+  background-color: var(--color-secondary);
+}
+
+/* Media Queries pentru design responsive */
+@media (max-width: 1024px) {
+  .carouselItem {
+    max-width: 500px;
+    padding: var(--spacing-medium);
+  }
+
+  .carouselItem h3 {
+    font-size: 1.5rem;
+  }
+
+  .carouselItem p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .carouselItem {
+    max-width: 400px;
+    padding: var(--spacing-medium);
+  }
+
+  .carouselItem h3 {
+    font-size: 1.3rem;
+  }
+
+  .carouselItem p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carouselItem {
+    max-width: 320px;
+    padding: var(--spacing-small);
+  }
+
+  .carouselItem h3 {
+    font-size: 1.2rem;
+  }
+
+  .carouselItem p {
+    font-size: 0.85rem;
+  }
+}

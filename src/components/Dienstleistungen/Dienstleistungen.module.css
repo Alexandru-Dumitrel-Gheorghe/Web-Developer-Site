@@ -9,10 +9,10 @@
   font-size: var(--font-size-title);
   color: var(--color-text);
   margin-bottom: var(--spacing-large);
-  text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Similar to VideoInfo section */
   position: relative;
+  font-weight: bold;
 }
 
 /* Linie sub titlu */
@@ -30,7 +30,7 @@
 /* Container pentru carduri */
 .servicesContainer {
   display: flex;
-  justify-content: space-evenly; /* Distribuie cardurile uniform */
+  justify-content: space-evenly;
   gap: var(--spacing-medium);
   max-width: 1200px;
   margin: 0 auto;
@@ -43,7 +43,7 @@
   padding: var(--spacing-large) var(--spacing-small);
   border-radius: var(--border-radius);
   text-align: center;
-  width: 22%; /* Ajustare pentru desktop: 22% lățime pentru a include 4 carduri */
+  width: 22%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: var(--box-shadow-normal);
   position: relative;

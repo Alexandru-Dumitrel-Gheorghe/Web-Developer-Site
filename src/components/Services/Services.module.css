@@ -8,6 +8,20 @@
   font-size: var(--font-size-title);
   color: var(--color-text);
   margin-bottom: var(--spacing-large);
+  letter-spacing: 2px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  position: relative; /* Necessary for the line to be positioned correctly */
+}
+
+.heading::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-primary); /* Same color as the button */
+  margin: 0 auto;
+  margin-top: var(--spacing-small); /* Space between the title and the line */
+  border-radius: 2px;
 }
 
 .cardsContainer {
