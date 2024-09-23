@@ -10,13 +10,15 @@ const Hero = () => {
       <div className={styles.imageContainer}>
         <img
           src={profileImage}
-          alt="Profilul lui Alexandru Gheorghe"
+          alt="Alexandru Gheorghe Profile"
           className={styles.profileImage}
         />
       </div>
       <div className={styles.textContainer}>
-        <h1>Verwandeln Sie Ihre Ideen in Realität</h1>
-        <p>
+        <h1 className={styles.heroTitle}>
+          Verwandeln Sie Ihre Ideen in Realität
+        </h1>
+        <p className={styles.heroDescription}>
           Ich bin Alexandru Gheorghe, ein Webentwickler, der sich auf die
           Erstellung moderner und responsiver Webanwendungen spezialisiert hat.
           Lassen Sie uns zusammenarbeiten, um benutzerfreundliche Websites zu
