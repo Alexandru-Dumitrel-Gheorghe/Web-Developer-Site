@@ -7,6 +7,7 @@ import CallToAction from "../../components/CallToAction/CallToAction";
 import Faq from "../../components/FAQ/Faq";
 import VideoInfo from "../../components/VideoInfo/VideoInfo";
 import WarumMichWählen from "../../components/WarumMichWählen/WarumMichWählen";
+import Testimonials from "../../components/Testimonials/Testimonials";
 import Certifications from "../../components/Certifications/Certifications";
 import Footer from "../../components/Footer/Footer";
 const Home = () => {
@@ -14,11 +15,12 @@ const Home = () => {
     <div className={styles.homeContainer}>
       <Hero />
       <Dienstleistungen />
-      <Services />
       <CallToAction />
+      <Services />
       <Faq />
-      <VideoInfo />
       <WarumMichWählen />
+      <VideoInfo />
+      <Testimonials />
       <Certifications />
       <Footer />
     </div>

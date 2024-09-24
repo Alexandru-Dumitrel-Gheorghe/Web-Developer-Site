@@ -14,7 +14,9 @@ const Dienstleistungen = () => {
       <h2 className={styles.heading}>Meine Dienstleistungen</h2>
       <div className={styles.servicesContainer}>
         <div className={styles.service}>
-          <FontAwesomeIcon icon={faCode} className={styles.icon} />
+          <div className={styles.iconContainer}>
+            <FontAwesomeIcon icon={faCode} className={styles.icon} />
+          </div>
           <h3>Web-Entwicklung</h3>
           <p>
             Ich biete professionelle Webentwicklung für kleine bis mittlere
@@ -22,7 +24,9 @@ const Dienstleistungen = () => {
           </p>
         </div>
         <div className={styles.service}>
-          <FontAwesomeIcon icon={faMobileAlt} className={styles.icon} />
+          <div className={styles.iconContainer}>
+            <FontAwesomeIcon icon={faMobileAlt} className={styles.icon} />
+          </div>
           <h3>Responsive Design</h3>
           <p>
             Alle von mir erstellten Websites sind vollständig responsive und
@@ -30,16 +34,20 @@ const Dienstleistungen = () => {
           </p>
         </div>
         <div className={styles.service}>
-          <FontAwesomeIcon icon={faSearch} className={styles.icon} />
+          <div className={styles.iconContainer}>
+            <FontAwesomeIcon icon={faSearch} className={styles.icon} />
+          </div>
           <h3>SEO-Optimierung</h3>
           <p>
-            Ich stelle sicher, dass Ihre Website nicht nur gut aussieht, sondern
-            auch in Suchmaschinen gut gefunden wird.
+            Ihre Website wird schnell gefunden, was Ihnen einen Vorteil
+            gegenüber der Konkurrenz verschafft.
           </p>
         </div>
         <div className={styles.service}>
-          <FontAwesomeIcon icon={faTools} className={styles.icon} />
-          <h3>Wartung und Support</h3>
+          <div className={styles.iconContainer}>
+            <FontAwesomeIcon icon={faTools} className={styles.icon} />
+          </div>
+          <h3>Wartung & Support</h3>
           <p>
             Ich biete fortlaufende Wartung und technischen Support, um
             sicherzustellen, dass Ihre Website immer auf dem neuesten Stand

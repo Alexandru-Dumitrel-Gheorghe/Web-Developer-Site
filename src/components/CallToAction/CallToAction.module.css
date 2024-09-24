@@ -7,11 +7,17 @@
   text-align: center;
   padding: var(--spacing-large) 0;
   overflow: hidden;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8); /* Efect de umbră pentru fundal */
 }
 
 .overlay {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Overlay întunecat pentru lizibilitate */
   padding: var(--spacing-large) var(--spacing-medium);
 }
 
@@ -24,17 +30,18 @@
 .content h2 {
   font-size: var(--font-size-title);
   margin-bottom: var(--spacing-medium);
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
   position: relative;
+  animation: slideIn 0.8s ease-out; /* Animație la apariție */
 }
 
-/* Add a subtle line under the title */
+/* Linie sub titlu */
 .content h2::after {
   content: "";
   display: block;
   width: 80px;
   height: 4px;
-  background-color: var(--color-primary); /* Same as button color */
+  background-color: var(--color-primary);
   margin: var(--spacing-small) auto 0;
   border-radius: 2px;
 }
@@ -43,6 +50,7 @@
   font-size: var(--font-size-description);
   margin-bottom: var(--spacing-large);
   line-height: 1.6;
+  opacity: 0.9; /* Ușor transparent pentru un aspect elegant */
 }
 
 .ctaButton {
@@ -58,11 +66,11 @@
 
 .ctaButton:hover {
   background-color: var(--color-secondary);
-  transform: scale(1.05);
+  transform: scale(1.1); /* Ușor mai mare la hover */
   box-shadow: var(--box-shadow-hover);
 }
 
-/* Animation for content */
+/* Animație pentru conținut */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -74,7 +82,19 @@
   }
 }
 
-/* Responsive adjustments */
+/* Animație pentru titlu */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Ajustări responsive */
 @media (max-width: 768px) {
   .content h2 {
     font-size: 2rem;

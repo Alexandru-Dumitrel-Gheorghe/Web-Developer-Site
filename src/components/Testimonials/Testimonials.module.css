@@ -1,0 +1,128 @@
+.reviewsSection {
+  padding: 60px 20px;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heading {
+  font-size: 2rem;
+  color: var(--color-text);
+  margin-bottom: 30px;
+  position: relative;
+  font-weight: bold;
+  animation: fadeIn 1s ease;
+}
+
+.heading::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-primary);
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+.chartContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  height: 300px;
+  margin-bottom: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+.reviewsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reviewCard {
+  background: linear-gradient(135deg, #1b2028, #0b1a30);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-normal);
+  text-align: center;
+  width: calc(30% - 20px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.reviewCard:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.reviewerName {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.rating {
+  color: gold; /* Culoarea stelelor */
+  margin-bottom: 10px;
+  font-size: 1.2rem; /* Dimensiune mai mică pentru stele */
+}
+
+.star {
+  color: gold; /* Stele pline */
+  margin-right: 2px;
+}
+
+.starEmpty {
+  color: rgba(255, 255, 255, 0.5); /* Stele goale */
+  margin-right: 2px;
+}
+
+.reviewText {
+  font-size: 1rem;
+  color: var(--color-subtext);
+  line-height: 1.5;
+}
+
+/* Animation for fading in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .reviewCard {
+    width: calc(45% - 20px); /* Două carduri pe rând pe tablete */
+  }
+}
+
+@media (max-width: 768px) {
+  .reviewCard {
+    width: calc(100% - 20px); /* Un singur card pe rând pe mobil */
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 1.6rem;
+  }
+}
