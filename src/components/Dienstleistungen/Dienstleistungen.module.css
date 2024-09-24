@@ -3,6 +3,7 @@
   background-color: var(--color-background);
   color: var(--color-text);
   text-align: center;
+  margin-top: 2rem;
 }
 
 .heading {
@@ -10,7 +11,7 @@
   color: var(--color-text);
   margin-bottom: var(--spacing-large);
   letter-spacing: 2px;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Similar to VideoInfo section */
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Mai pronunțată */
   position: relative;
   font-weight: bold;
 }
@@ -21,7 +22,7 @@
   display: block;
   width: 80px;
   height: 4px;
-  background-color: var(--color-primary); /* Same color as the button */
+  background-color: var(--color-primary);
   margin: 0 auto;
   margin-top: var(--spacing-small);
   border-radius: 2px;
@@ -72,12 +73,14 @@ h3 {
   font-size: var(--font-size-card-title);
   color: var(--color-text);
   margin-bottom: var(--spacing-medium);
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Efect de umbră pentru titluri */
 }
 
 p {
   font-size: var(--font-size-description);
   color: var(--color-subtext);
   line-height: 1.6;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Umbră subtilă pentru text */
 }
 
 .primaryButton {

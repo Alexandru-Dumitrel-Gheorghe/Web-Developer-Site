@@ -2,6 +2,7 @@
   padding: var(--spacing-large) var(--spacing-medium);
   color: var(--color-text);
   text-align: center;
+  margin-top: 6rem;
 }
 
 .heading {

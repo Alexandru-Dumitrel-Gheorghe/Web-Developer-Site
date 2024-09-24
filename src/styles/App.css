@@ -1,29 +1,22 @@
-/* app.css */
-
 :root {
-  --font-primary: "Rubik", sans-serif;
-  --color-background: linear-gradient(
-    135deg,
-    #0d0d0d,
-    #0b1a30 40%,
-    #1b2028
-  ); /* Fundal negru cu nuanțe subtile de albastru */
+  --font-primary: "Poppins", sans-serif; /* Schimbă fontul la Poppins */
+  --color-background: linear-gradient(135deg, #0d0d0d, #0b1a30 40%, #1b2028);
   --color-card-background: linear-gradient(
     135deg,
     #0d0d0d,
     #0b1a30 40%,
     #1b2028
-  ); /* Fundal card negru cu nuanțe de albastru */
+  );
   --color-primary: #3772ff;
   --color-secondary: #5587ff;
   --color-text: #ffffff;
-  --color-subtext: #ccc;
-  --color-hover-shadow: rgba(0, 0, 0, 0.6);
+  --color-subtext: #e0e0e0;
+  --color-hover-shadow: rgba(0, 0, 0, 0.8);
 
-  --font-size-title: 1.8rem;
-  --font-size-card-title: 1.4rem;
-  --font-size-description: 1rem;
-  --font-size-button: 1rem;
+  --font-size-title: 2rem;
+  --font-size-card-title: 1.6rem;
+  --font-size-description: 1.1rem;
+  --font-size-button: 1.1rem;
 
   --spacing-large: 50px;
   --spacing-medium: 20px;
@@ -40,8 +33,8 @@
 
 body {
   margin: 0;
-  font-family: var(--font-primary);
-  background: var(--color-background), #0d0d0d; /* Fundal gradient + fallback negru */
+  font-family: var(--font-primary); /* Asigură-te că fontul este aplicat */
+  background: var(--color-background), #0d0d0d;
   color: var(--color-text);
 }
 

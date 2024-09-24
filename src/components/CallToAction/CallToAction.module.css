@@ -8,6 +8,7 @@
   padding: var(--spacing-large) 0;
   overflow: hidden;
   box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8); /* Efect de umbră pentru fundal */
+  margin-top: 6rem;
 }
 
 .overlay {

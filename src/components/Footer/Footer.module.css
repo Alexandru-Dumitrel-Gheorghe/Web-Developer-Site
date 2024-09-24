@@ -8,7 +8,7 @@
   color: var(--color-text);
   position: relative; /* For potential overlay effects */
   overflow: hidden; /* To contain the pseudo-elements */
-  margin-top: 80px;
+  margin-top: 6rem;
 }
 
 .footerSection::before {
