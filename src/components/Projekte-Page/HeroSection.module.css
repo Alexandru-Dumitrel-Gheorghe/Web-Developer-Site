@@ -1,0 +1,173 @@
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  padding: var(--spacing-large) var(--spacing-medium);
+  background: linear-gradient(120deg, #004e92, #000428);
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  color: #fff;
+}
+
+.textWrapper {
+  padding: var(--spacing-medium);
+}
+
+.title {
+  font-size: var(--font-size-title);
+  margin-bottom: var(--spacing-small);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #fff;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-large);
+  color: #c0c0c0;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.details {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: var(--spacing-large);
+  flex-wrap: wrap;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--spacing-medium);
+}
+
+.icon {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-small);
+}
+
+.number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-small);
+}
+
+.label {
+  font-size: 1.2rem;
+  color: #c0c0c0;
+}
+
+/* Scroll Indicator */
+.scrollDownIndicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--spacing-large);
+  color: #fff;
+  cursor: pointer;
+  animation: fadeIn 2s ease forwards;
+}
+
+.scrollDownIndicator p {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-small);
+}
+
+.arrowIcon {
+  font-size: 2rem;
+  color: var(--color-primary);
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Keyframes for fade in animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .hero {
+    margin-top: 60px; /* Adăugăm mai mult spațiu sus pe mobile */
+  }
+
+  .details {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .detail {
+    margin-bottom: var(--spacing-small);
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    margin-top: 80px; /* Adăugăm și mai mult spațiu sus pe mobile */
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .number {
+    font-size: 2.2rem;
+  }
+
+  .arrowIcon {
+    font-size: 1.8rem;
+  }
+}

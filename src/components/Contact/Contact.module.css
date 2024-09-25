@@ -9,34 +9,40 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--spacing-large);
 }
 
-.logoContainer {
-  width: 100%;
+.logoAndDescription {
+  grid-column: 1 / -1;
   text-align: center;
-  margin-bottom: var(--spacing-medium); /* Am redus spațiul de jos */
 }
 
 .logo {
-  max-width: 300px; /* Am micșorat dimensiunea logo-ului */
+  max-width: 200px; /* Micșorăm dimensiunea logo-ului */
   width: 100%;
   height: auto;
+  margin-bottom: var(--spacing-small);
+}
+
+.description {
+  font-size: var(--font-size-description);
+  color: var(--color-text);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .heading {
   font-size: 1.8rem;
   color: var(--color-text);
   margin-bottom: var(--spacing-medium);
+  text-transform: uppercase;
 }
 
 .kontaktdaten,
 .quickLinks,
 .socialMedia {
-  flex: 1 1 300px;
   text-align: center;
 }
 
@@ -92,43 +98,51 @@
   display: flex;
   justify-content: center;
   gap: var(--spacing-medium);
+  margin-top: var(--spacing-small);
 }
 
 .socialLinks a {
   color: var(--color-text);
-  font-size: 2rem;
-  transition: color 0.3s ease;
+  font-size: 1.8rem;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .socialLinks a:hover {
   color: var(--color-secondary);
+  transform: scale(1.1);
 }
 
 /* Responsivitate */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-medium);
+  }
+
+  .logoAndDescription {
+    grid-column: 1;
   }
 
   .kontaktdaten,
   .quickLinks,
   .socialMedia {
-    flex: 1 1 100%;
-    margin-bottom: var(--spacing-large);
+    text-align: center;
   }
 
   .logo {
-    max-width: 250px; /* Mai mic pe ecrane mici */
-  }
-
-  .logoContainer {
-    margin-bottom: var(
-      --spacing-medium
-    ); /* Asigură spațierea corectă pe mobil */
+    max-width: 150px;
   }
 
   .heading {
     font-size: 1.5rem;
+  }
+
+  .socialLinks a {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: var(--font-size-text-small);
+    padding: 0 10px;
   }
 }

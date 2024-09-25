@@ -1,0 +1,190 @@
+/* ProjectsSection.module.css */
+.projectsSection {
+  padding: var(--spacing-large) var(--spacing-medium);
+  background: var(--color-background); /* Păstrăm fundalul gradient */
+}
+
+.container {
+  max-width: 1600px; /* Păstrat pentru a încadra mai bine pe pagini mari */
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-bold);
+  background: linear-gradient(45deg, #1e3c72, #2a5298);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--spacing-large);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-large);
+  gap: 10px;
+}
+
+.filterButton {
+  padding: var(--spacing-small) var(--spacing-medium);
+  background-color: var(--color-background-light);
+  color: var(--color-text);
+  border: 1px solid var(--color-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-text);
+}
+
+.filterButton.active {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.filterButton:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  ); /* Carduri ajustate pentru diferite dimensiuni */
+  gap: var(--spacing-large);
+}
+
+.projectCard {
+  background: var(--color-card-background);
+  padding: var(--spacing-medium);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-normal);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.projectImage {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-medium);
+  transition: transform 0.3s ease;
+}
+
+.projectCard:hover .projectImage {
+  transform: scale(1.05);
+}
+
+.projectInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.projectTitle {
+  font-size: var(--font-size-title-secondary);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.projectDescription {
+  font-size: var(--font-size-description);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-medium);
+  flex-grow: 1;
+}
+
+.technologies {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: var(--spacing-medium);
+  padding: 0;
+}
+
+.techItem {
+  background-color: #e0e7ff;
+  color: var(--color-primary);
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: var(--font-size-text-small);
+}
+
+.links {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.githubLink,
+.projectLink {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: var(--font-size-text);
+}
+
+.githubLink:hover,
+.projectLink:hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: var(--font-size-title-mobile);
+  }
+
+  .filterButton {
+    padding: 8px 16px;
+    font-size: var(--font-size-text-small);
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .projectImage {
+    height: 150px;
+  }
+
+  .projectTitle {
+    font-size: var(--font-size-title-secondary-mobile);
+  }
+
+  .projectDescription {
+    font-size: var(--font-size-text-small);
+  }
+
+  .techItem {
+    font-size: var(--font-size-text-xsmall);
+    padding: 4px 8px;
+  }
+
+  .githubLink,
+  .projectLink {
+    padding: 6px 12px;
+    font-size: var(--font-size-text-small);
+  }
+}

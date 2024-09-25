@@ -1,0 +1,230 @@
+.contactSection {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background);
+  padding: var(--spacing-large);
+  max-width: 1200px;
+  margin: 160px auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-large);
+}
+
+/* Section Title */
+.sectionTitle {
+  text-align: center;
+  font-size: var(--font-size-title);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-large);
+}
+
+/* Contact Info */
+.contactInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-large);
+  flex-wrap: wrap;
+}
+
+.infoCard {
+  background-color: var(--color-card-background);
+  padding: var(--spacing-medium);
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: var(--box-shadow-normal);
+  width: 30%;
+  margin-bottom: var(--spacing-medium);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.infoCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-large);
+}
+
+.icon {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-small);
+}
+
+.infoCard h4 {
+  font-size: var(--font-size-card-title);
+  margin-top: var(--spacing-small);
+  color: var(--color-text);
+}
+
+.infoCard p {
+  color: var(--color-subtext);
+  font-size: var(--font-size-description);
+}
+
+/* Contact Form Section */
+.contactFormSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+  padding: var(--spacing-medium);
+  background-color: var(--color-form-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-normal);
+}
+
+.contactForm input,
+.contactForm textarea,
+.contactForm select {
+  margin-bottom: var(--spacing-small);
+  padding: var(--spacing-small);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-subtext);
+  background-color: #fff;
+  color: #333;
+  font-size: var(--font-size-description);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus,
+.contactForm select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 5px var(--color-primary);
+  outline: none;
+}
+
+/* Input Fields Styling */
+.contactForm input,
+.contactForm select {
+  height: 40px;
+}
+
+.contactForm textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contactForm select {
+  height: 50px;
+  padding-left: var(--spacing-small);
+}
+
+.submitButton {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  padding: var(--spacing-small) var(--spacing-medium);
+  border-radius: 50px;
+  border: none;
+  font-size: var(--font-size-button);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  align-self: flex-end;
+}
+
+.submitButton:hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-3px);
+}
+
+/* Clear Button */
+.clearButton {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  padding: var(--spacing-small) var(--spacing-medium);
+  border-radius: 50px;
+  border: none;
+  font-size: var(--font-size-button);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  align-self: flex-end;
+  margin-top: var(--spacing-small);
+}
+
+.clearButton:hover {
+  background-color: var(--color-primary);
+  transform: translateY(-3px);
+}
+
+.successMessage {
+  color: var(--color-success);
+  margin-top: var(--spacing-medium);
+}
+
+/* Get In Touch */
+.getInTouch {
+  width: 45%;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centrăm orizontal */
+  text-align: center; /* Centrăm textul */
+}
+
+.getInTouch h3 {
+  font-size: var(--font-size-title);
+  margin-bottom: var(--spacing-medium);
+}
+
+.getInTouch p {
+  margin-bottom: var(--spacing-small); /* Adăugăm spațiu între paragrafe */
+  line-height: 1.5; /* Mărim înălțimea liniei pentru lizibilitate */
+}
+
+.socialIcons {
+  margin-top: var(--spacing-medium);
+}
+
+.socialLink {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-right: var(--spacing-small);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .contactSection {
+    flex-direction: column;
+    align-items: center; /* Centrăm conținutul pentru mobile */
+  }
+
+  .contactFormSection {
+    flex-direction: column;
+    align-items: center; /* Centrăm formularul și secțiunea de contact */
+    width: 100%;
+  }
+
+  .contactForm {
+    width: 90%; /* Formularul va ocupa întreaga lățime */
+    max-width: 500px; /* Limităm lățimea maximă pe ecrane mici */
+    text-align: center;
+  }
+
+  .getInTouch {
+    width: 100%;
+    text-align: center; /* Centrăm textul pe ecrane mici */
+    margin-bottom: var(--spacing-medium);
+    margin-top: 60px;
+  }
+
+  .infoCard {
+    width: 100%;
+    margin-bottom: var(--spacing-medium); /* Lățime completă pe ecrane mici */
+  }
+
+  .submitButton,
+  .clearButton {
+    align-self: center; /* Centrăm butoanele */
+    width: 100%;
+    max-width: 300px;
+  }
+}

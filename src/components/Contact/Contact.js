@@ -16,9 +16,13 @@ const Contact = () => {
   return (
     <footer className={styles.contactSection}>
       <div className={styles.container}>
-        {/* Logo-ul */}
-        <div className={styles.logoContainer}>
+        {/* Logo-ul și Descrierea */}
+        <div className={styles.logoAndDescription}>
           <img src={logoImage} alt="Logo" className={styles.logo} />
+          <p className={styles.description}>
+            Contactați-ne pentru mai multe informații sau pentru a colabora la
+            proiecte interesante.
+          </p>
         </div>
 
         {/* Secțiunea de Contact */}
