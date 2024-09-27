@@ -1,12 +1,22 @@
+/* HeroSectionAlternative.module.css */
 .hero {
   display: flex;
+  align-items: center; /* Centrează vertical imaginea și textul */
   justify-content: center;
-  align-items: center;
-  min-height: 90vh;
-  padding: var(--spacing-large) var(--spacing-medium);
-  background: linear-gradient(120deg, #004e92, #000428);
-  position: relative;
-  overflow: hidden;
+  flex-direction: column; /* Pentru ecrane mici, imaginea și textul sunt într-o coloană */
+  padding: 50px 20px;
+  width: 100%;
+  min-height: 100vh; /* Ocupă toată înălțimea vizibilă */
+  background-color: var(--color-background); /* Fundal întunecat */
+  box-sizing: border-box;
+  background: linear-gradient(
+      135deg,
+      rgba(13, 13, 13, 0.9),
+      rgba(11, 26, 48, 0.9)
+    ),
+    url("https://images.unsplash.com/photo-1591439657848-9f4b9ce436b9?q=80&w=2004&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+      center/cover no-repeat;
+  color: white;
 }
 
 .overlay {
@@ -15,19 +25,14 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5); /* Kontrast für das Hintergrundbild */
   z-index: 1;
 }
 
-.container {
-  max-width: 1200px;
-  width: 100%;
-  text-align: center;
+.content {
+  position: relative;
   z-index: 2;
-  color: #fff;
-}
-
-.textWrapper {
+  text-align: center;
   padding: var(--spacing-medium);
 }
 
@@ -36,71 +41,116 @@
   margin-bottom: var(--spacing-small);
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: #fff;
+  color: var(--color-text);
   opacity: 0;
-  animation: fadeIn 1s ease forwards;
+  animation: fadeInDown 1s ease-out forwards;
 }
 
 .subtitle {
-  font-size: 1.5rem;
+  font-size: var(--font-size-description);
   margin-bottom: var(--spacing-large);
-  color: #c0c0c0;
+  color: var(--color-subtext);
   opacity: 0;
-  animation: fadeIn 1.5s ease forwards;
+  animation: fadeInUp 1.5s ease-out forwards;
 }
 
-.details {
-  display: flex;
-  justify-content: space-around;
+.ctaButton {
+  font-size: var(--font-size-button);
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  padding: var(--spacing-small) var(--spacing-medium);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   margin-bottom: var(--spacing-large);
-  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards;
 }
 
-.detail {
+.ctaButton:hover {
+  background-color: var(--color-secondary);
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-medium);
+  margin-bottom: var(--spacing-large);
+  opacity: 0;
+  animation: fadeIn 2.5s ease-out forwards;
+}
+
+.stat {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: var(--spacing-medium);
 }
 
 .icon {
-  font-size: 2.5rem;
-  color: var(--color-primary);
+  font-size: 2rem;
   margin-bottom: var(--spacing-small);
+  color: var(--color-primary);
 }
 
 .number {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 2.5rem;
+  font-weight: bold;
   color: var(--color-primary);
-  margin-bottom: var(--spacing-small);
 }
 
 .label {
-  font-size: 1.2rem;
-  color: #c0c0c0;
+  font-size: 1rem;
+  color: var(--color-subtext);
 }
 
-/* Scroll Indicator */
-.scrollDownIndicator {
+.scrollIndicator {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: var(--spacing-large);
-  color: #fff;
   cursor: pointer;
-  animation: fadeIn 2s ease forwards;
+  opacity: 0;
+  animation: fadeIn 3s ease-out forwards;
 }
 
-.scrollDownIndicator p {
-  font-size: 1.2rem;
-  margin-bottom: var(--spacing-small);
-}
-
-.arrowIcon {
-  font-size: 2rem;
+.arrow {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
   color: var(--color-primary);
-  animation: bounce 1.5s infinite;
+  animation: bounce 2s infinite;
+}
+
+.scrollIndicator span {
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes bounce {
@@ -119,44 +169,37 @@
   }
 }
 
-/* Keyframes for fade in animations */
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
 /* Responsiveness */
 @media (max-width: 768px) {
   .hero {
-    margin-top: 60px; /* Adăugăm mai mult spațiu sus pe mobile */
-  }
-
-  .details {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .detail {
-    margin-bottom: var(--spacing-small);
+    padding: 50px 10px 30px; /* Adjust top padding to add more space */
   }
 
   .title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
+    margin-top: 20px; /* Add more space above the title */
+    margin-bottom: var(--spacing-small);
   }
 
   .subtitle {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: var(--spacing-small);
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    margin-top: 80px; /* Adăugăm și mai mult spațiu sus pe mobile */
+    padding: 60px 5px 20px; /* Further increase top padding */
   }
 
   .title {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    margin-top: 30px; /* Add even more space above the title */
+    margin-bottom: var(--spacing-extra-small);
   }
 
   .subtitle {
@@ -164,10 +207,15 @@
   }
 
   .number {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
-  .arrowIcon {
-    font-size: 1.8rem;
+  .ctaButton {
+    padding: var(--spacing-small) var(--spacing-medium);
+    font-size: 0.9rem;
+  }
+
+  .arrow {
+    font-size: 1.2rem;
   }
 }

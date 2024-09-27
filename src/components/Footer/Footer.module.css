@@ -1,25 +1,9 @@
 .footerSection {
-  padding: var(--spacing-small) var(--spacing-medium); /* Adjusted for compactness */
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.8),
-    rgba(1, 49, 162, 0.6)
-  ); /* Dark to blue gradient */
+  padding: var(--spacing-large) var(--spacing-medium);
+  background: var(--color-background); /* Use the background gradient */
   color: var(--color-text);
-  position: relative; /* For potential overlay effects */
-  overflow: hidden; /* To contain the pseudo-elements */
+  position: relative;
   margin-top: 6rem;
-}
-
-.footerSection::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.2); /* Dark overlay for contrast */
-  z-index: 1; /* Ensures overlay is on top of the background */
 }
 
 .container {
@@ -29,16 +13,14 @@
   max-width: 1200px;
   margin: 0 auto;
   gap: var(--spacing-large);
-  position: relative; /* To layer text over the pseudo-element */
-  z-index: 2; /* Ensure text is above the overlay */
 }
 
 .heading {
-  font-size: 24px; /* Use variable for title size */
-  color: var(--color-text); /* Set title color to white */
+  font-size: var(--font-size-title); /* Use variable for title size */
+  color: var(--color-text); /* Set title color */
   margin-bottom: var(--spacing-medium);
   position: relative; /* For underline effect */
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .heading::after {
@@ -54,13 +36,13 @@
 .contactInfo,
 .quickLinks,
 .socialMedia {
-  flex: 1 1 30%;
+  flex: 1 1 30%; /* Allow flexibility */
   text-align: left;
 }
 
 .contactInfo p,
 .quickLinks li,
-.socialLinks a {
+.socialMedia p {
   margin-bottom: var(--spacing-small);
   color: var(--color-text);
 }
@@ -92,7 +74,7 @@
 
 .socialLinks a {
   color: var(--color-text);
-  font-size: 1.5rem; /* You can also use a variable here if needed */
+  font-size: 1.5rem; /* Consistent icon size */
   transition: color 0.3s ease;
 }
 
@@ -103,12 +85,13 @@
 .footerBottom {
   margin-top: var(--spacing-medium);
   border-top: 1px solid var(--color-subtext);
-  padding: var(--spacing-small); /* Smaller bottom padding */
+  padding: var(--spacing-small);
   color: var(--color-subtext);
-  text-align: center; /* Centered text */
+  text-align: center;
 }
 
-/* Media Queries */
+/* Existing styles remain unchanged */
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -118,11 +101,16 @@
   .contactInfo,
   .quickLinks,
   .socialMedia {
-    text-align: center;
-    margin-bottom: var(--spacing-small); /* Reduced margin for less spacing */
+    text-align: center; /* Center text for mobile */
+    margin-bottom: var(--spacing-small);
+  }
+
+  .heading {
+    font-size: 1.5rem; /* Adjusted size for mobile */
+    margin-top: 10px; /* Adjust margin for smaller screens */
   }
 
   .socialLinks {
-    justify-content: center;
+    justify-content: center; /* Center social icons on mobile */
   }
 }

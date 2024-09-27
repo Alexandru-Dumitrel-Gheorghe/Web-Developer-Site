@@ -7,6 +7,7 @@ import CallToAction from "../../components/CallToAction/CallToAction";
 import Faq from "../../components/FAQ/Faq";
 import VideoInfo from "../../components/VideoInfo/VideoInfo";
 import WarumMichWählen from "../../components/WarumMichWählen/WarumMichWählen";
+import BlogIntro from "../../components/BlogPage/BlogIntro";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import Certifications from "../../components/Certifications/Certifications";
 import Footer from "../../components/Footer/Footer";
@@ -21,6 +22,7 @@ const Home = () => {
       <WarumMichWählen />
       <VideoInfo />
       <Testimonials />
+      <BlogIntro />
       <Certifications />
       <Footer />
     </div>

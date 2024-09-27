@@ -1,68 +1,67 @@
 import React, { useEffect, useState } from "react";
 import styles from "./HeroSection.module.css";
-import {
-  FaProjectDiagram,
-  FaCheckCircle,
-  FaSmile,
-  FaArrowDown,
-} from "react-icons/fa";
+import { FaBriefcase, FaUsers, FaStar, FaArrowDown } from "react-icons/fa";
 
-function Hero() {
-  const [countUp, setCountUp] = useState({
-    current: 0,
-    completed: 0,
+function HeroSectionAlternative() {
+  const [stats, setStats] = useState({
+    projects: 0,
     clients: 0,
+    reviews: 0,
   });
 
   useEffect(() => {
-    const countTimer = setInterval(() => {
-      setCountUp((prev) => ({
-        current: prev.current < 10 ? prev.current + 1 : 10,
-        completed: prev.completed < 50 ? prev.completed + 1 : 50,
-        clients: prev.clients < 30 ? prev.clients + 1 : 30,
+    const timer = setInterval(() => {
+      setStats((prev) => ({
+        projects: prev.projects < 20 ? prev.projects + 1 : 20,
+        clients: prev.clients < 100 ? prev.clients + 1 : 100,
+        reviews: prev.reviews < 500 ? prev.reviews + 10 : 500,
       }));
-    }, 50);
+    }, 100);
 
-    return () => clearInterval(countTimer);
+    return () => clearInterval(timer);
   }, []);
+
+  const scrollToContent = () => {
+    const nextSection = document.getElementById("next-section");
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section className={styles.hero}>
       <div className={styles.overlay}></div>
-      <div className={styles.container}>
-        <div className={styles.textWrapper}>
-          <h1 className={`${styles.title} ${styles.fadeIn}`}>Meine Projekte</h1>
-          <p className={`${styles.subtitle} ${styles.fadeIn}`}>
-            Hier sind einige meiner besten Arbeiten, die Sie sich ansehen
-            können.
-          </p>
-          <div className={`${styles.details} ${styles.fadeIn}`}>
-            <div className={styles.detail}>
-              <FaProjectDiagram className={styles.icon} />
-              <span className={styles.number}>{countUp.current}+</span>
-              <span className={styles.label}>Aktuelle Projekte</span>
-            </div>
-            <div className={styles.detail}>
-              <FaCheckCircle className={styles.icon} />
-              <span className={styles.number}>{countUp.completed}+</span>
-              <span className={styles.label}>Abgeschlossene Projekte</span>
-            </div>
-            <div className={styles.detail}>
-              <FaSmile className={styles.icon} />
-              <span className={styles.number}>{countUp.clients}+</span>
-              <span className={styles.label}>Zufriedene Kunden</span>
-            </div>
-          </div>
+      <div className={styles.content}>
+        <h1 className={styles.title}>Willkommen in meinem Portfolio</h1>
+        <p className={styles.subtitle}>
+          Entdecken Sie meine aktuellen Projekte und erfolgreichen
+          Kooperationen.
+        </p>
 
-          {/* Dinamic Scroll Indication */}
-          <div className={styles.scrollDownIndicator}>
-            <p>Mehr sehen</p>
-            <FaArrowDown className={styles.arrowIcon} />
+        <div className={styles.stats}>
+          <div className={styles.stat}>
+            <FaBriefcase className={styles.icon} />
+            <span className={styles.number}>{stats.projects}+</span>
+            <span className={styles.label}>Projekte</span>
           </div>
+          <div className={styles.stat}>
+            <FaUsers className={styles.icon} />
+            <span className={styles.number}>{stats.clients}+</span>
+            <span className={styles.label}>Kunden</span>
+          </div>
+          <div className={styles.stat}>
+            <FaStar className={styles.icon} />
+            <span className={styles.number}>{stats.reviews}+</span>
+            <span className={styles.label}>Bewertungen</span>
+          </div>
+        </div>
+        <div className={styles.scrollIndicator} onClick={scrollToContent}>
+          <FaArrowDown className={styles.arrow} />
+          <span>Mehr erfahren</span>
         </div>
       </div>
     </section>
   );
 }
 
-export default Hero;
+export default HeroSectionAlternative;

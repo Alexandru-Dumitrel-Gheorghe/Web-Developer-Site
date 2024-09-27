@@ -1,214 +1,122 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./ContactForm.module.css";
 import {
-  FaPhone,
+  FaUser,
   FaEnvelope,
-  FaMapMarkerAlt,
+  FaPhone,
+  FaPaperPlane,
   FaFacebook,
   FaTwitter,
   FaInstagram,
   FaLinkedin,
 } from "react-icons/fa";
 
-const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    name: "",
-    phone: "",
-    subject: "",
-    reason: "",
-    message: "",
-  });
-  const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [successMessage, setSuccessMessage] = useState("");
-  const [messageLength, setMessageLength] = useState(0);
-
-  const validateForm = () => {
-    const newErrors = {};
-    if (!formData.email.includes("@"))
-      newErrors.email = "Invalid email address";
-    if (formData.name.length < 3)
-      newErrors.name = "Name must be at least 3 characters";
-    if (formData.phone.length < 10) newErrors.phone = "Invalid phone number";
-    if (formData.subject.length < 3)
-      newErrors.subject = "Subject must be at least 3 characters";
-    if (formData.message.length < 10)
-      newErrors.message = "Message must be at least 10 characters";
-    return newErrors;
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-    if (name === "message") setMessageLength(value.length);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length === 0) {
-      setLoading(true);
-      // Simulate sending data
-      setTimeout(() => {
-        setLoading(false);
-        setSuccessMessage("Your message has been sent successfully!");
-        setFormData({
-          email: "",
-          name: "",
-          phone: "",
-          subject: "",
-          reason: "",
-          message: "",
-        });
-      }, 2000);
-    } else {
-      setErrors(validationErrors);
-    }
-  };
-
+function ContactForm() {
   return (
-    <div className={styles.contactSection}>
-      <h2 className={styles.sectionTitle}>Kontakt</h2>
-      <div className={styles.contactInfo}>
-        <div className={styles.infoCard}>
-          <FaMapMarkerAlt className={styles.icon} />
-          <h4>Adresse</h4>
-          <p>Fürstenfeldbruck, München, Deutschland</p>
-        </div>
-        <div className={styles.infoCard}>
-          <FaPhone className={styles.icon} />
-          <h4>Telefonnummer</h4>
-          <p>+49 123 456 789</p>
-        </div>
-        <div className={styles.infoCard}>
-          <FaEnvelope className={styles.icon} />
-          <h4>Email</h4>
-          <p>info@alexdeveloper.com</p>
-        </div>
-      </div>
-
-      <div className={styles.contactFormSection}>
-        <form className={styles.contactForm} onSubmit={handleSubmit}>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            required
-            value={formData.email}
-            onChange={handleChange}
-          />
-          {errors.email && (
-            <span className={styles.errorMessage}>{errors.email}</span>
-          )}
-
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            required
-            value={formData.name}
-            onChange={handleChange}
-          />
-          {errors.name && (
-            <span className={styles.errorMessage}>{errors.name}</span>
-          )}
-
-          <input
-            type="text"
-            name="phone"
-            placeholder="Telefonnummer"
-            required
-            value={formData.phone}
-            onChange={handleChange}
-          />
-          {errors.phone && (
-            <span className={styles.errorMessage}>{errors.phone}</span>
-          )}
-
-          <input
-            type="text"
-            name="subject"
-            placeholder="Betreff"
-            required
-            value={formData.subject}
-            onChange={handleChange}
-          />
-          {errors.subject && (
-            <span className={styles.errorMessage}>{errors.subject}</span>
-          )}
-
-          <select
-            name="reason"
-            required
-            value={formData.reason}
-            onChange={handleChange}
-            className={styles.selectInput}
-          >
-            <option value="" disabled>
-              Grund für Kontaktaufnahme
-            </option>
-            <option value="project">Projektanfrage</option>
-            <option value="feedback">Feedback</option>
-            <option value="support">Unterstützung</option>
-          </select>
-
-          <textarea
-            name="message"
-            placeholder="Nachricht"
-            required
-            maxLength={500}
-            value={formData.message}
-            onChange={handleChange}
-          ></textarea>
-          <span>{messageLength}/500 characters</span>
-          {errors.message && (
-            <span className={styles.errorMessage}>{errors.message}</span>
-          )}
-
-          <button
-            type="submit"
-            className={styles.submitButton}
-            disabled={loading}
-          >
-            {loading ? "Sending..." : "Nachricht senden"}
-          </button>
-        </form>
-
-        {successMessage && (
-          <div className={styles.successMessage}>{successMessage}</div>
-        )}
-
-        <div className={styles.getInTouch}>
-          <h3>Get in touch</h3>
-          <p>
-            Haben Sie Fragen oder möchten Sie ein Projekt besprechen? Schreiben
-            Sie mir und ich werde so schnell wie möglich antworten.
+    <section className={styles.contactFormSection}>
+      <div className={styles.container}>
+        {/* Form Container */}
+        <div className={styles.formContainer}>
+          <h2 className={styles.heading}>Kontaktieren Sie mich</h2>
+          <p className={styles.description}>
+            Haben Sie Fragen oder möchten Sie ein Projekt besprechen? Lassen Sie
+            uns in Kontakt treten!
           </p>
-          <p>
-            Egal, ob es sich um ein großes oder kleines Projekt handelt, ich bin
-            hier, um Ihnen zu helfen. Lassen Sie uns gemeinsam herausfinden, wie
-            ich Ihr nächstes Webprojekt unterstützen kann.
-          </p>
+          <form className={styles.contactForm}>
+            <div className={styles.formGroup}>
+              <FaUser className={styles.icon} />
+              <label htmlFor="name" className={styles.hiddenLabel}>
+                Ihr Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Ihr Name"
+                required
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <FaEnvelope className={styles.icon} />
+              <label htmlFor="email" className={styles.hiddenLabel}>
+                Ihre E-Mail-Adresse
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Ihre E-Mail-Adresse"
+                required
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <FaPhone className={styles.icon} />
+              <label htmlFor="phone" className={styles.hiddenLabel}>
+                Ihre Telefonnummer
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Ihre Telefonnummer"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <FaPaperPlane className={styles.icon} />
+              <label htmlFor="message" className={styles.hiddenLabel}>
+                Ihre Nachricht
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Ihre Nachricht"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" className={styles.submitButton}>
+              Senden
+            </button>
+          </form>
+        </div>
 
+        {/* Contact Information */}
+        <div className={styles.contactInfo}>
+          <h3 className={styles.heading}>Informationen</h3>
+          <div className={styles.infoGroup}>
+            <p>
+              <strong>Adresse:</strong> Musterstraße 123, 12345 Musterstadt
+            </p>
+            <p>
+              <strong>Email:</strong> info@example.com
+            </p>
+            <p>
+              <strong>Telefon:</strong> +49 123 456 7890
+            </p>
+          </div>
+          <p className={styles.infoDescription}>
+            Wenn Sie Fragen haben oder mehr Informationen benötigen, zögern Sie
+            bitte nicht, uns zu kontaktieren.
+          </p>
+          <h3 className={styles.heading}>Folgen Sie mir</h3>
           <div className={styles.socialIcons}>
-            <button type="button" className={styles.socialLink}>
+            <button className={styles.socialLink} aria-label="Facebook">
               <FaFacebook />
             </button>
-            <button type="button" className={styles.socialLink}>
+            <button className={styles.socialLink} aria-label="Twitter">
               <FaTwitter />
             </button>
-            <button type="button" className={styles.socialLink}>
+            <button className={styles.socialLink} aria-label="Instagram">
               <FaInstagram />
             </button>
-            <button type="button" className={styles.socialLink}>
+            <button className={styles.socialLink} aria-label="LinkedIn">
               <FaLinkedin />
             </button>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
+}
 
-export default ContactSection;
+export default ContactForm;

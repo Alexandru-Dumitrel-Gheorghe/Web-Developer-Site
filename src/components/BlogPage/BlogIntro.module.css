@@ -1,0 +1,116 @@
+.blogIntro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-medium);
+  padding: var(--spacing-large);
+  background: var(--color-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-hover);
+  max-width: 1000px; /* Set max width to 1200px */
+  height: 400px; /* Increase the height */
+  margin: 0 auto;
+  margin-top: 80px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blogIntro:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.imageContainer {
+  flex: 1;
+  max-width: 500px; /* Adjusted to fit the larger component */
+  height: 100%; /* Make the image container take full height */
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.blogImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.blogIntro:hover .blogImage {
+  transform: scale(1.05);
+}
+
+.content {
+  flex: 1;
+  padding: var(--spacing-large);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content */
+}
+
+.title {
+  font-size: 2.5rem; /* Increased font size */
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-small);
+  background: linear-gradient(45deg, #1e3c72, #2a5298);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  font-size: 1.2rem; /* Slightly larger font size */
+  color: var(--color-text);
+  margin-bottom: var(--spacing-large);
+  line-height: 1.6;
+}
+
+.ctaButton {
+  padding: var(--spacing-small) var(--spacing-large);
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem; /* Increased font size */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  align-self: start; /* Aligns button to the start */
+}
+
+.ctaButton:hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .blogIntro {
+    flex-direction: column;
+    height: auto; /* Adjusts the height for smaller screens */
+    padding: var(--spacing-medium); /* Reduce padding on smaller screens */
+  }
+
+  .imageContainer {
+    max-width: 100%; /* Make image container full width */
+    height: auto; /* Adjust height to maintain aspect ratio */
+  }
+
+  .content {
+    text-align: center; /* Center text on smaller screens */
+    padding: var(--spacing-medium); /* Reduce padding */
+  }
+
+  .title {
+    font-size: 2rem; /* Reduce font size */
+  }
+
+  .description {
+    font-size: 1rem; /* Adjust font size */
+  }
+
+  .ctaButton {
+    align-self: center; /* Center button */
+    width: 60%; /* Full width button */
+  }
+}

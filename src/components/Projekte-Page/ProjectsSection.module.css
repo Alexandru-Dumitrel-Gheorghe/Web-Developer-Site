@@ -1,11 +1,10 @@
-/* ProjectsSection.module.css */
 .projectsSection {
   padding: var(--spacing-large) var(--spacing-medium);
-  background: var(--color-background); /* Păstrăm fundalul gradient */
+  background: var(--color-background);
 }
 
 .container {
-  max-width: 1600px; /* Păstrat pentru a încadra mai bine pe pagini mari */
+  max-width: 1200px; /* Adjusted for better centering on larger screens */
   margin: 0 auto;
   text-align: center;
 }
@@ -57,8 +56,9 @@
   grid-template-columns: repeat(
     auto-fit,
     minmax(280px, 1fr)
-  ); /* Carduri ajustate pentru diferite dimensiuni */
+  ); /* Makes cards responsive */
   gap: var(--spacing-large);
+  justify-items: center; /* Centers cards within the grid */
 }
 
 .projectCard {
@@ -69,7 +69,9 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  align-items: center;
+  width: 100%; /* Takes full width of the grid cell */
+  max-width: 350px;
 }
 
 .projectCard:hover {
@@ -95,6 +97,7 @@
   display: flex;
   flex-direction: column;
   text-align: left;
+  width: 100%;
 }
 
 .projectTitle {
@@ -151,6 +154,7 @@
   transform: translateY(-3px);
 }
 
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .title {
     font-size: var(--font-size-title-mobile);
@@ -162,7 +166,12 @@
   }
 
   .projectsGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    gap: var(--spacing-medium);
+  }
+
+  .projectCard {
+    max-width: 90%; /* Takes most of the width on mobile screens */
   }
 
   .projectImage {

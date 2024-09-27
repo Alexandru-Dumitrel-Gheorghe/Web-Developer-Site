@@ -1,4 +1,3 @@
-// Navbar.jsx
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
@@ -79,6 +78,35 @@ function Navbar() {
           >
             Kontakt
           </NavLink>
+          <NavLink
+            to="/blog" // Added Blog link
+            className={({ isActive }) =>
+              `${styles.navLink} ${isActive ? styles.activeNavLink : ""}`
+            }
+            onClick={closeMenu}
+          >
+            Blog
+          </NavLink>
+
+          {/* Social Media Icons in Mobile Menu */}
+          {menuOpen && (
+            <div className={styles.socialIconsMobile}>
+              <a
+                href="https://github.com/username"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faGithub} />
+              </a>
+              <a
+                href="https://linkedin.com/in/username"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faLinkedin} />
+              </a>
+            </div>
+          )}
         </div>
 
         <div className={styles.rightSection}>
@@ -102,6 +130,11 @@ function Navbar() {
             <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
           </div>
         </div>
+
+        {/* Backdrop for mobile menu */}
+        {menuOpen && (
+          <div className={styles.backdrop} onClick={closeMenu}></div>
+        )}
       </nav>
     </header>
   );
