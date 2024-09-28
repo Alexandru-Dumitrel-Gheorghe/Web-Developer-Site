@@ -23,7 +23,6 @@
 
 .content {
   line-height: 1.6; /* Improve readability */
-  overflow-x: auto; /* Allow horizontal scrolling */
   padding: 0 var(--spacing-small); /* Add side padding to the content */
 }
 
@@ -40,18 +39,44 @@ h3 {
   }
 
   .title {
-    font-size: 1.8rem; /* Adjust title size */
+    font-size: 1.8rem; /* Adjust title size for mobile */
+  }
+
+  .date {
+    font-size: 0.8rem; /* Adjust date size for mobile */
   }
 
   .content {
-    padding: 0; /* Remove padding to keep it flush on smaller screens */
+    padding: 0; /* Remove side padding on smaller screens */
   }
 
   .content p {
-    font-size: 0.9rem; /* Adjust paragraph size */
+    font-size: 0.9rem; /* Adjust paragraph size for mobile */
   }
 
   h3 {
-    font-size: 1.2rem; /* Adjust h3 size */
+    font-size: 1.5rem; /* Adjust h3 size for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .blogPost {
+    padding: var(--spacing-small); /* Maintain padding */
+  }
+
+  .title {
+    font-size: 1.5rem; /* Further reduce title size */
+  }
+
+  .date {
+    font-size: 0.75rem; /* Smaller date size */
+  }
+
+  .content p {
+    font-size: 0.85rem; /* Adjust paragraph size for very small screens */
+  }
+
+  h3 {
+    font-size: 1.4rem; /* Adjust h3 size for very small screens */
   }
 }

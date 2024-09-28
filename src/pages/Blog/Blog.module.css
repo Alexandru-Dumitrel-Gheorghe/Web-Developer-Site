@@ -1,0 +1,5 @@
+.blogPage {
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+}

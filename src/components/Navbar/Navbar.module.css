@@ -1,3 +1,4 @@
+/* Navbar Styles */
 .header {
   width: 100%;
   background-color: var(--color-background);
@@ -17,7 +18,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 var(--spacing-medium);
-  height: 80px; /* Desired height for navbar */
+  height: 80px;
 }
 
 .leftSection,
@@ -35,6 +36,7 @@
   display: flex;
   justify-content: center;
   flex-grow: 1;
+  transition: left 0.3s ease, background 0.3s ease;
 }
 
 .rightSection {
@@ -120,6 +122,11 @@
   font-size: 1.5rem;
   color: var(--color-text);
   cursor: pointer;
+  transition: transform 0.3s ease; /* Add rotation animation */
+}
+
+.menuIcon.open {
+  transform: rotate(90deg); /* Rotate icon when the menu is open */
 }
 
 /* Styles for mobile menu */
@@ -150,7 +157,7 @@
 @media (max-width: 768px) {
   .navbar {
     padding: 0 var(--spacing-small);
-    height: 60px; /* Adjust height for mobile devices */
+    height: 60px;
   }
 
   .centerSection {
@@ -162,9 +169,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: left 0.3s ease, background 0.3s ease;
-    z-index: 999;
     background: rgba(13, 13, 13, 0.95); /* Dark background for mobile menu */
+    z-index: 999;
   }
 
   .centerSection.active {
@@ -174,7 +180,7 @@
   .navLink {
     margin: var(--spacing-medium) 0;
     font-size: 1.5rem;
-    text-align: center; /* Center text in mobile menu */
+    text-align: center;
   }
 
   .navLink::after {
@@ -190,7 +196,6 @@
   }
 
   .logo img {
-    height: 100%;
     width: 250px;
   }
 }

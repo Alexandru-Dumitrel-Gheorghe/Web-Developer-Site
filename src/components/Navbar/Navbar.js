@@ -4,7 +4,7 @@ import styles from "./Navbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import Logo from "../../assets/Logo.png"; // Importăm logo-ul
+import Logo from "../../assets/Logo.png"; // Importing the logo
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -79,7 +79,7 @@ function Navbar() {
             Kontakt
           </NavLink>
           <NavLink
-            to="/blog" // Added Blog link
+            to="/blog"
             className={({ isActive }) =>
               `${styles.navLink} ${isActive ? styles.activeNavLink : ""}`
             }
@@ -126,7 +126,10 @@ function Navbar() {
               <FontAwesomeIcon icon={faLinkedin} />
             </a>
           </div>
-          <div className={styles.menuIcon} onClick={toggleMenu}>
+          <div
+            className={`${styles.menuIcon} ${menuOpen ? styles.open : ""}`}
+            onClick={toggleMenu}
+          >
             <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
           </div>
         </div>

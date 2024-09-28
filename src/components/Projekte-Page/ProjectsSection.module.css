@@ -1,10 +1,13 @@
+/* ProjectsSection.module.css */
+
 .projectsSection {
   padding: var(--spacing-large) var(--spacing-medium);
   background: var(--color-background);
+  color: var(--color-text);
 }
 
 .container {
-  max-width: 1200px; /* Adjusted for better centering on larger screens */
+  max-width: 1200px; /* Pentru o centrare mai bună pe ecrane mari */
   margin: 0 auto;
   text-align: center;
 }
@@ -12,10 +15,7 @@
 .title {
   font-size: var(--font-size-title);
   font-weight: var(--font-weight-bold);
-  background: linear-gradient(45deg, #1e3c72, #2a5298);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-text); /* Culoare albă pentru titlu */
   margin-bottom: var(--spacing-large);
   letter-spacing: var(--letter-spacing-wide);
   text-transform: uppercase;
@@ -26,7 +26,7 @@
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: var(--spacing-large);
-  gap: 10px;
+  gap: var(--spacing-small);
 }
 
 .filterButton {
@@ -38,16 +38,18 @@
   transition: all 0.3s ease;
   border-radius: var(--border-radius);
   font-size: var(--font-size-text);
+  font-family: var(--font-primary);
 }
 
 .filterButton.active {
   background-color: var(--color-primary);
   color: #fff;
+  border-color: var(--color-primary);
 }
 
 .filterButton:hover {
   background-color: var(--color-primary);
-  color: white;
+  color: #fff;
   transform: translateY(-2px);
 }
 
@@ -56,9 +58,9 @@
   grid-template-columns: repeat(
     auto-fit,
     minmax(280px, 1fr)
-  ); /* Makes cards responsive */
+  ); /* Face card-urile responsive */
   gap: var(--spacing-large);
-  justify-items: center; /* Centers cards within the grid */
+  justify-items: center; /* Centrează card-urile în grid */
 }
 
 .projectCard {
@@ -70,7 +72,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; /* Takes full width of the grid cell */
+  width: 100%; /* Ocupă toată lățimea celulei grid */
   max-width: 350px;
 }
 
@@ -104,12 +106,12 @@
   font-size: var(--font-size-title-secondary);
   font-weight: var(--font-weight-semibold);
   color: var(--color-primary);
-  margin-bottom: 10px;
+  margin-bottom: var(--spacing-small);
 }
 
 .projectDescription {
   font-size: var(--font-size-description);
-  color: var(--color-text);
+  color: var(--color-subtext);
   margin-bottom: var(--spacing-medium);
   flex-grow: 1;
 }
@@ -129,6 +131,7 @@
   padding: 5px 10px;
   border-radius: 12px;
   font-size: var(--font-size-text-small);
+  font-family: var(--font-primary);
 }
 
 .links {
@@ -140,12 +143,13 @@
 .githubLink,
 .projectLink {
   background-color: var(--color-primary);
-  color: #ffffff;
+  color: var(--color-text);
   text-decoration: none;
   padding: 8px 16px;
   border-radius: 25px;
   transition: background-color 0.3s ease, transform 0.3s ease;
   font-size: var(--font-size-text);
+  font-family: var(--font-primary);
 }
 
 .githubLink:hover,
@@ -154,8 +158,8 @@
   transform: translateY(-3px);
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
+/* Media Queries pentru Responsivitate */
+@media (max-width: 1024px) {
   .title {
     font-size: var(--font-size-title-mobile);
   }
@@ -166,12 +170,11 @@
   }
 
   .projectsGrid {
-    grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(250px, 1fr)
+    ); /* Ajustare pentru ecrane mai mari */
     gap: var(--spacing-medium);
-  }
-
-  .projectCard {
-    max-width: 90%; /* Takes most of the width on mobile screens */
   }
 
   .projectImage {
@@ -195,5 +198,85 @@
   .projectLink {
     padding: 6px 12px;
     font-size: var(--font-size-text-small);
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .filterButton {
+    font-size: 0.9rem;
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr; /* Stack card-urile pe ecrane mici */
+    gap: var(--spacing-medium);
+  }
+
+  .projectCard {
+    max-width: 90%; /* Ocupă aproape toată lățimea pe mobile */
+  }
+
+  .projectImage {
+    height: 150px;
+  }
+
+  .projectTitle {
+    font-size: var(--font-size-title-secondary-mobile);
+  }
+
+  .projectDescription {
+    font-size: var(--font-size-text-small);
+  }
+
+  .techItem {
+    font-size: var(--font-size-text-xsmall);
+    padding: 4px 8px;
+  }
+
+  .githubLink,
+  .projectLink {
+    padding: 6px 12px;
+    font-size: var(--font-size-text-small);
+  }
+}
+
+@media (max-width: 480px) {
+  .projectsSection {
+    padding: var(--spacing-large) var(--spacing-small);
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .filterButton {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .projectImage {
+    height: 120px;
+  }
+
+  .projectTitle {
+    font-size: 1.4rem;
+  }
+
+  .projectDescription {
+    font-size: var(--font-size-text-xsmall);
+  }
+
+  .techItem {
+    font-size: 0.8rem;
+    padding: 3px 6px;
+  }
+
+  .githubLink,
+  .projectLink {
+    padding: 5px 10px;
+    font-size: var(--font-size-text-xsmall);
   }
 }

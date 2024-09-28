@@ -26,9 +26,7 @@ const AboutMain = () => {
             Erfahrung in der Erstellung von benutzerfreundlichen und modernen
             Webanwendungen. Meine Expertise umfasst sowohl Frontend- als auch
             Backend-Technologien, mit denen ich maßgeschneiderte digitale
-            Lösungen für meine Kunden entwickle. Ich arbeite gerne mit den
-            neuesten Webtechnologien, um innovative und leistungsstarke Projekte
-            zu realisieren.
+            Lösungen für meine Kunden entwickle.
           </p>
           <button className={styles.contactButton}>
             Kontaktieren Sie mich

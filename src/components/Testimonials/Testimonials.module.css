@@ -9,12 +9,10 @@
 }
 
 .heading {
-  font-size: 2rem;
-  color: var(--color-text);
-  margin-bottom: 30px;
+  font-size: var(--font-size-title); /* Use variable for title size */
+  color: #ffffff; /* Set title color to white */
+  margin-bottom: var(--spacing-medium); /* Use variable for spacing */
   position: relative;
-  font-weight: bold;
-  animation: fadeIn 1s ease;
 }
 
 .heading::after {
@@ -28,36 +26,30 @@
   border-radius: 2px;
 }
 
-.chartContainer {
-  max-width: 800px;
-  margin: 0 auto;
-  height: 300px;
-  margin-bottom: 40px;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  background: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-}
-
 .reviewsContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 20px;
+  justify-content: center;
+  gap: var(--spacing-medium); /* Use variable for gap */
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .reviewCard {
-  background: linear-gradient(135deg, #1b2028, #0b1a30);
-  padding: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(27, 32, 40, 0.9),
+    rgba(11, 26, 48, 0.8)
+  );
+  padding: 30px;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-normal);
   text-align: center;
-  width: calc(30% - 20px);
+  width: calc(30% - 40px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  animation: fadeIn 0.5s ease forwards;
 }
 
 .reviewCard:hover {
@@ -66,29 +58,31 @@
 }
 
 .reviewerName {
-  font-size: 1.5rem;
+  font-size: var(--font-size-card-title); /* Use variable for card title size */
   color: var(--color-primary);
-  margin-bottom: 10px;
+  margin-bottom: var(--spacing-small); /* Use variable for spacing */
 }
 
 .rating {
-  color: gold; /* Culoarea stelelor */
-  margin-bottom: 10px;
-  font-size: 1.2rem; /* Dimensiune mai mică pentru stele */
+  color: gold;
+  margin-bottom: var(--spacing-small); /* Use variable for spacing */
+  font-size: 1.5rem;
 }
 
 .star {
-  color: gold; /* Stele pline */
+  color: gold;
   margin-right: 2px;
 }
 
 .starEmpty {
-  color: rgba(255, 255, 255, 0.5); /* Stele goale */
+  color: rgba(255, 255, 255, 0.5);
   margin-right: 2px;
 }
 
 .reviewText {
-  font-size: 1rem;
+  font-size: var(
+    --font-size-description
+  ); /* Use variable for description size */
   color: var(--color-subtext);
   line-height: 1.5;
 }
@@ -108,22 +102,26 @@
 /* Media Queries */
 @media (max-width: 1024px) {
   .reviewCard {
-    width: calc(45% - 20px); /* Două carduri pe rând pe tablete */
+    width: calc(45% - 20px); /* Two cards per row on tablets */
   }
 }
 
 @media (max-width: 768px) {
   .reviewCard {
-    width: calc(100% - 20px); /* Un singur card pe rând pe mobil */
+    width: calc(100% - 20px); /* One card per row on mobile */
   }
 
   .heading {
-    font-size: 2rem;
+    font-size: var(
+      --font-size-title
+    ); /* Ensure mobile uses the same variable */
   }
 }
 
 @media (max-width: 480px) {
   .heading {
-    font-size: 1.6rem;
+    font-size: var(
+      --font-size-title
+    ); /* Maintain consistency for small screens */
   }
 }

@@ -6,7 +6,6 @@
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-normal);
   color: var(--color-text);
-  margin-top: var(--spacing-large);
 }
 
 .title {
@@ -39,7 +38,11 @@ h3 {
   }
 
   .title {
-    font-size: 1.8rem; /* Adjust title size */
+    font-size: 1.5rem; /* Adjust title size for mobile */
+  }
+
+  .date {
+    font-size: 0.8rem; /* Smaller date size for mobile */
   }
 
   .content p {
@@ -47,6 +50,24 @@ h3 {
   }
 
   h3 {
-    font-size: 1.2rem; /* Adjust h3 size */
+    font-size: 1.5rem; /* Adjust h3 size for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.3rem; /* Further reduce title size on very small screens */
+  }
+
+  .date {
+    font-size: 0.75rem; /* Even smaller date size */
+  }
+
+  .content p {
+    font-size: 0.85rem; /* Smaller paragraph size */
+  }
+
+  h3 {
+    font-size: 1.4rem; /* Adjust h3 size for very small screens */
   }
 }

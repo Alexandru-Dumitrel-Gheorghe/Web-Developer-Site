@@ -18,23 +18,24 @@
   color: var(--color-text);
   max-width: 1200px;
   margin: 50px auto; /* Center the contact form section */
-  display: flex; /* Flex display to center contents */
+  display: flex;
   justify-content: center; /* Center contents horizontally */
   align-items: center; /* Center contents vertically */
 }
 
 .container {
   display: flex;
-  justify-content: center; /* Center the container */
+  flex-direction: column; /* Stack items vertically for smaller screens */
+  align-items: center; /* Center align all items */
   gap: var(--spacing-large);
-  flex-wrap: wrap;
-  align-items: stretch;
-  width: 100%; /* Ensure the container takes the full width */
+  width: 100%; /* Full width to adapt to screen size */
+  max-width: 600px; /* Set a max-width for the container */
+  padding: 0 var(--spacing-small); /* Add padding to the sides */
 }
 
 .formContainer,
 .contactInfo {
-  flex: 1 1 450px; /* Allow flex items to grow */
+  width: 100%; /* Set to 100% width for consistency */
   padding: var(--spacing-medium);
   background: var(--color-card-background);
   border-radius: var(--border-radius);
@@ -42,17 +43,7 @@
   margin-bottom: var(--spacing-medium);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  text-align: center; /* Center text in form and contact info */
-  max-width: 100%; /* Ensure they can take full width */
-  margin-left: auto; /* Center margin */
-  margin-right: auto; /* Center margin */
-}
-
-/* Adjusting Titles to be on the same level */
-.formContainer .heading,
-.contactInfo .heading {
-  margin-top: 0;
+  align-items: center; /* Center content inside */
 }
 
 .description,
@@ -85,9 +76,8 @@
   padding: var(--spacing-small);
   border-radius: var(--border-radius);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
   margin-bottom: var(--spacing-medium);
-  justify-content: center; /* Center form group content */
+  width: 100%; /* Ensure full width */
 }
 
 .formGroup:last-child {
@@ -129,8 +119,7 @@ textarea {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
   width: 100%; /* Button will take full width */
-  max-width: 300px; /* Set a maximum width for larger screens */
-  align-self: center; /* Center the button */
+  max-width: 300px; /* Set a max-width for larger screens */
   margin: var(--spacing-medium) 0;
 }
 
@@ -189,15 +178,12 @@ textarea:focus {
     max-width: 100%; /* Ensure they can take full width */
     padding: var(--spacing-small); /* Adjust padding */
     margin: 0; /* Remove margin to avoid shifting */
+    text-align: center; /* Center text on mobile */
   }
 
   .submitButton {
     width: 100%; /* Button will take full width */
     max-width: none; /* Remove max width for small screens */
-  }
-
-  .contactInfo {
-    text-align: center; /* Center text on mobile */
   }
 
   .infoGroup {

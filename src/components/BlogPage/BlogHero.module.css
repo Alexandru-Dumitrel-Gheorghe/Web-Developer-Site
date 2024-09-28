@@ -1,12 +1,12 @@
 .blogHero {
   display: flex;
-  align-items: center; /* Centrează vertical imaginea și textul */
+  align-items: center; /* Center vertically */
   justify-content: center;
-  flex-direction: column; /* Pentru ecrane mici, imaginea și textul sunt într-o coloană */
+  flex-direction: column; /* Stack items on smaller screens */
   padding: 50px 20px;
   width: 100%;
-  min-height: 100vh; /* Ocupă toată înălțimea vizibilă */
-  background-color: var(--color-background); /* Fundal întunecat */
+  min-height: 100vh; /* Full viewport height */
+  background-color: var(--color-background); /* Dark background */
   box-sizing: border-box;
   background: linear-gradient(
       135deg,
@@ -16,16 +16,21 @@
     url("https://images.unsplash.com/photo-1501139083538-0139583c060f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
       center/cover no-repeat;
   color: white;
+  overflow: hidden; /* Prevent content overflow */
 }
 
 .content {
-  max-width: 800px; /* Maximum width for the content */
+  max-width: 800px; /* Limit content width */
+  text-align: center; /* Center text */
+  padding: 0 20px; /* Add padding for smaller screens */
 }
 
 .title {
   font-size: var(--font-size-title);
-  color: var(--color-text);
   margin-bottom: var(--spacing-small);
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 .description {
@@ -34,17 +39,31 @@
   margin-bottom: var(--spacing-medium);
 }
 
-.button {
-  font-size: var(--font-size-button);
-  background-color: var(--color-primary);
-  color: var(--color-text);
-  padding: var(--spacing-small) var(--spacing-medium);
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .hero {
+    height: 50vh; /* Adjust height for medium screens */
+  }
+
+  .title {
+    font-size: 2.5rem; /* Adjust title size */
+  }
+
+  .subtitle {
+    font-size: 1.5rem; /* Adjust subtitle size */
+  }
 }
 
-.button:hover {
-  background-color: var(--color-secondary);
+@media (max-width: 480px) {
+  .hero {
+    height: 40vh; /* Adjust height for small screens */
+  }
+
+  .title {
+    font-size: 2rem; /* Further reduce title size */
+  }
+
+  .subtitle {
+    font-size: 1.2rem; /* Further reduce subtitle size */
+  }
 }

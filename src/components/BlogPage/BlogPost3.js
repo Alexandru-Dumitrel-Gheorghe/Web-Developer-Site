@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./BlogPost3.module.css"; // Create this CSS module for styles
+import styles from "./BlogPost3.module.css"; // Ensure this path is correct
 
 const BlogPost3 = () => {
   return (

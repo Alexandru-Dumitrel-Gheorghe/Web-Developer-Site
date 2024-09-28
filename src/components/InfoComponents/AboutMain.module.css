@@ -94,52 +94,58 @@
 /* Media Queries */
 @media (max-width: 1024px) {
   .container {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: column; /* Stack elements vertically */
+    text-align: center; /* Center text */
   }
 
   .textSection {
     padding-right: 0;
-    margin-bottom: 30px;
+    margin-bottom: 30px; /* Add space below the text section */
   }
 
   .profileImage {
-    width: 350px;
-    height: 350px; /* Ensure height matches width */
+    width: 250px; /* Reduced width for smaller screens */
+    height: 250px; /* Ensure height matches width */
+    margin-bottom: 20px; /* Add space below the image */
   }
 
   .statsSection {
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: column; /* Stack stats vertically */
+    gap: 20px; /* Add space between stats */
+    align-items: center; /* Center stats */
+  }
+
+  .statItem {
+    width: 80%; /* Limit width for better alignment */
   }
 }
 
 @media (max-width: 768px) {
   .profileImage {
-    width: 300px;
-    height: 300px; /* Ensure height matches width */
+    width: 200px; /* Further adjust width for smaller screens */
+    height: 200px; /* Ensure height matches width */
   }
 
   .statItem h2 {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Smaller font size for stat titles */
   }
 
   .statItem p {
-    font-size: 1rem;
+    font-size: 1rem; /* Smaller font size for stat descriptions */
   }
 }
 
 @media (max-width: 480px) {
   .profileImage {
-    width: 250px;
-    height: 250px; /* Ensure height matches width */
+    width: 150px; /* Further reduce width for very small screens */
+    height: 150px; /* Ensure height matches width */
   }
 
   .statItem h2 {
-    font-size: 2rem;
+    font-size: 2rem; /* Even smaller font size for stat titles */
   }
 
   .statItem p {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Smaller font size for stat descriptions */
   }
 }

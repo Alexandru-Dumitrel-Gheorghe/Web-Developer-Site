@@ -11,8 +11,8 @@
   color: var(--color-text);
   margin-bottom: var(--spacing-large);
   letter-spacing: 2px;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  position: relative; /* Necessary for the line to be positioned correctly */
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
 .heading::after {
@@ -20,9 +20,9 @@
   display: block;
   width: 80px;
   height: 4px;
-  background-color: var(--color-primary); /* Same color as the button */
+  background-color: var(--color-primary);
   margin: 0 auto;
-  margin-top: var(--spacing-small); /* Space between the title and the line */
+  margin-top: var(--spacing-small);
   border-radius: 2px;
 }
 
@@ -52,14 +52,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1 1 250px; /* Cardurile vor avea o lățime minimă de 250px */
-  max-width: 300px; /* Lățimea maximă a cardului */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1 1 250px;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .certificationCard:hover {
   transform: translateY(-10px) scale(1.05);
   box-shadow: var(--box-shadow-hover);
+  background-color: var(--color-secondary); /* Light background on hover */
 }
 
 .logo {
@@ -67,12 +69,19 @@
   height: 100px;
   object-fit: contain;
   margin-bottom: var(--spacing-small);
+  transition: transform 0.3s ease; /* Add scaling effect on hover */
+}
+
+.certificationCard:hover .logo {
+  transform: scale(1.1); /* Slightly enlarge logo on hover */
 }
 
 .certName {
   font-size: 1.2rem;
   margin-bottom: var(--spacing-small);
   color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 .certDescription {
@@ -84,7 +93,7 @@
 /* Media Queries */
 @media (max-width: 768px) {
   .certificationCard {
-    flex: 1 1 200px; /* Lățimea minimă a cardului pe ecrane mai mici */
+    flex: 1 1 200px;
   }
 
   .heading {
@@ -112,7 +121,7 @@
 @media (max-width: 480px) {
   .certificationCard {
     flex: 1 1 100%;
-    max-width: 300px; /* Limitează lățimea cardului pe ecrane mici */
+    max-width: 300px;
   }
 
   .heading {

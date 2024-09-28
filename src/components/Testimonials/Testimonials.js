@@ -1,11 +1,7 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
-import { Chart, registerables } from "chart.js";
 import styles from "./Testimonials.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-
-Chart.register(...registerables);
 
 const reviews = [
   {
@@ -29,49 +25,9 @@ const reviews = [
 ];
 
 const Testimonials = () => {
-  const data = {
-    labels: reviews.map((review) => review.name),
-    datasets: [
-      {
-        label: "Rating",
-        data: reviews.map((review) => review.rating),
-        backgroundColor: "rgba(55, 114, 255, 0.8)",
-        borderColor: "rgba(255, 255, 255, 1)",
-        borderWidth: 2,
-      },
-    ],
-  };
-
   return (
     <section className={styles.reviewsSection}>
       <h2 className={styles.heading}>Bewertungen</h2>
-      <div className={styles.chartContainer}>
-        <Bar
-          data={data}
-          options={{
-            maintainAspectRatio: false,
-            scales: {
-              y: {
-                beginAtZero: true,
-                ticks: {
-                  color: "#fff",
-                },
-                grid: {
-                  color: "rgba(255, 255, 255, 0.1)",
-                },
-              },
-              x: {
-                ticks: {
-                  color: "#fff",
-                },
-                grid: {
-                  color: "rgba(255, 255, 255, 0.1)",
-                },
-              },
-            },
-          }}
-        />
-      </div>
       <div className={styles.reviewsContainer}>
         {reviews.map((review, index) => (
           <div key={index} className={styles.reviewCard}>
