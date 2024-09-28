@@ -3,7 +3,23 @@ import styles from "./Services.module.css";
 
 const Services = () => {
   const handleLearnMore = (technology) => {
-    alert(`More information about ${technology}`);
+    let url = "";
+    switch (technology) {
+      case "React":
+        url = "https://react.dev";
+        break;
+      case "Node.js":
+        url = "https://nodejs.org";
+        break;
+      case "JavaScript":
+        url = "https://developer.mozilla.org/en-US/docs/Web/JavaScript";
+        break;
+      default:
+        break;
+    }
+    if (url) {
+      window.open(url, "_blank"); // Open the URL in a new tab
+    }
   };
 
   return (
