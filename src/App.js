@@ -11,29 +11,29 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Projects from "./pages/Projects/Projects";
 import Contact from "./pages/Contact/Contact";
-import Blog from "./pages/Blog/Blog"; // Import the Blog component
+import Blog from "./pages/Blog/Blog";
 import ScrollToTopButton from "./components/ScrollToTop/ScrollToTopButton";
+import WhatsAppButton from "./components/Diverse/WhatsAppButton";
 import Loader from "./components/Diverse/Loader";
 import "./styles/App.css";
 
 function App() {
-  const location = useLocation(); // Hook to get the current route
-  const [loading, setLoading] = useState(true); // Start with loading true
+  const location = useLocation();
+  const [loading, setLoading] = useState(true);
 
-  // Simulate loading during route changes
   useEffect(() => {
-    setLoading(true); // Start the loader as soon as the location changes
+    setLoading(true);
     const timer = setTimeout(() => {
-      setLoading(false); // Delay page load to simulate loader
-    }, 500); // Adjust the delay time
+      setLoading(false);
+    }, 500);
 
-    return () => clearTimeout(timer); // Cleanup timer
+    return () => clearTimeout(timer);
   }, [location]);
 
   return (
     <>
-      {loading && <Loader />} {/* Show the loader when loading is true */}
-      {!loading && ( // Only show page content when not loading
+      {loading && <Loader />}
+      {!loading && (
         <>
           <Navbar />
           <Routes>
@@ -41,9 +41,10 @@ function App() {
             <Route path="/über-mich" element={<About />} />
             <Route path="/projekte" element={<Projects />} />
             <Route path="/kontakt" element={<Contact />} />
-            <Route path="/blog" element={<Blog />} /> {/* Add the Blog route */}
+            <Route path="/blog" element={<Blog />} />
           </Routes>
-          <ScrollToTopButton /> {/* The ScrollToTop button */}
+          <ScrollToTopButton />
+          <WhatsAppButton /> {/* Adaugă butonul WhatsApp */}
         </>
       )}
     </>

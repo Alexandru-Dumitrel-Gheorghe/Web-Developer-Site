@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { FaArrowUp } from "react-icons/fa"; // Assuming you're using this icon
-import styles from "./ScrollToTopButton.module.css"; // Correct import of CSS
+import { FaArrowUp } from "react-icons/fa";
+import styles from "./ScrollToTopButton.module.css";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Show or hide the button based on scroll position
   const toggleVisibility = () => {
     if (window.scrollY > 300) {
       setIsVisible(true);
@@ -21,7 +20,6 @@ const ScrollToTopButton = () => {
     };
   }, []);
 
-  // Function to scroll to the top
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

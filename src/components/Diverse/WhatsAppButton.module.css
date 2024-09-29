@@ -1,0 +1,67 @@
+.button {
+  position: fixed;
+  bottom: 30px;
+  right: 100px; /* Poziționare lângă butonul de scroll */
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8);
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
+}
+
+.icon {
+  font-size: 28px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .button {
+    bottom: 20px;
+    right: 80px; /* Ajustează pentru a evita suprapunerea */
+    width: 50px;
+    height: 50px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button {
+    bottom: 15px;
+    right: 70px; /* Ajustează pentru a evita suprapunerea */
+    width: 45px;
+    height: 45px;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}

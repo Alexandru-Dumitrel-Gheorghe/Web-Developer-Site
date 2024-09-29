@@ -119,6 +119,31 @@ h6 {
   background-color: var(--color-secondary);
 }
 
+/* Stilizare pentru bara de derulare */
+::-webkit-scrollbar {
+  width: 12px; /* Lățimea barei de derulare */
+}
+
+::-webkit-scrollbar-track {
+  background: #1b2028; /* Fundalul pentru track-ul barei de derulare */
+  border-radius: var(--border-radius);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary); /* Culoarea thumb-ului */
+  border-radius: var(--border-radius);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary); /* Culoarea thumb-ului la hover */
+}
+
+/* Pentru Firefox */
+* {
+  scrollbar-width: thin; /* Stil subțire pentru Firefox */
+  scrollbar-color: var(--color-primary) #1b2028; /* Culoarea thumb-ului și a track-ului */
+}
+
 @media (max-width: 768px) {
   .card {
     width: var(--card-width-mobile);
