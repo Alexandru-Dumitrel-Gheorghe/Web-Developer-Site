@@ -25,7 +25,6 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.6);
   z-index: 1;
-  border-radius: var(--border-radius);
 }
 
 .content {

@@ -1,10 +1,9 @@
-/* ContactForm.module.css */
-
 .contactSection {
   padding: var(--spacing-large) var(--spacing-medium);
   background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-primary);
+  overflow: hidden; /* Previne extinderea formularului */
 }
 
 .container {
@@ -18,8 +17,7 @@
 
 .formWrapper,
 .infoWrapper {
-  flex: 1 1 500px; /* Asigură dimensiuni fixe */
-  max-width: 500px; /* Lățime maximă fixă */
+  flex: 1 1 500px;
   background: var(--color-card-background);
   padding: var(--spacing-medium);
   border-radius: var(--border-radius);
@@ -77,9 +75,9 @@
 
 .input,
 .textarea {
-  width: calc(100% - 50px); /* Ajustează lățimea pentru a evita depășirea */
+  width: 100%;
   padding: 12px var(--spacing-medium);
-  padding-left: 50px; /* Asigură padding uniform pentru icon */
+  padding-left: 50px; /* Adjusted padding to match the new icon size */
   border: 1px solid var(--color-subtext);
   border-radius: var(--border-radius);
   background-color: var(--color-background);
@@ -166,14 +164,20 @@
     align-items: center;
   }
 
-  .input,
-  .textarea {
-    padding-left: 45px; /* Ajustează padding-ul pe ecrane mici */
+  .icon,
+  .infoIcon {
+    font-size: 1rem; /* Unified icon size */
+    color: var(--color-primary);
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    transform: translateY(-50%);
   }
 
   .formWrapper,
   .infoWrapper {
-    flex: 1 1 90%; /* Lățime maximă pe ecrane mici */
+    flex: 1 1 100%;
+    max-width: 90%;
     margin-bottom: var(--spacing-large);
   }
 
@@ -184,6 +188,11 @@
 
   .submitButton {
     font-size: 1rem;
+  }
+
+  .input,
+  .textarea {
+    padding: 12px var(--spacing-medium);
   }
 }
 
