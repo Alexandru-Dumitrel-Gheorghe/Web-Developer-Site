@@ -1,3 +1,5 @@
+/* ProjectsSection.module.css */
+
 .projectsSection {
   padding: var(--spacing-large) var(--spacing-medium);
   background-color: var(--color-background);
@@ -12,9 +14,23 @@
 
 .title {
   font-size: var(--font-size-title);
+  color: var(--color-text);
   margin-bottom: var(--spacing-large);
-  text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-wide);
+  letter-spacing: 2px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-primary);
+  margin: 0 auto;
+  margin-top: var(--spacing-small);
+  border-radius: 2px;
+  animation: slideIn 1s ease-in-out forwards;
 }
 
 .masonryGrid {

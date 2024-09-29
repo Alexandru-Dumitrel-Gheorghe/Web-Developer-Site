@@ -5,6 +5,7 @@ import BlogHero from "../../components/BlogPage/BlogHero"; // Corrected path
 import BlogPost from "../../components/BlogPage/BlogPost";
 import BlogPost2 from "../../components/BlogPage/BlogPost2";
 import BlogPost3 from "../../components/BlogPage/BlogPost3";
+import CallToAction from "../../components/CallToAction/CallToAction";
 import useScrollAnimation from "../../components/hooks/useScrollAnimation"; // Importă hook-ul
 
 const Blog = () => {
@@ -16,6 +17,7 @@ const Blog = () => {
       <BlogPost />
       <BlogPost2 />
       <BlogPost3 />
+      <CallToAction />
       <Footer />
     </div>
   );
