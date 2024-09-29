@@ -14,7 +14,6 @@
   position: relative;
 }
 
-/* Blue underline for the title */
 .title::after {
   content: "";
   display: block;
@@ -50,26 +49,9 @@
   box-shadow: var(--box-shadow-hover);
 }
 
-/* Circular progress styling */
-.circularProgress {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: conic-gradient(
-    var(--color-primary) calc(var(--level) * 1%),
-    var(--color-subtext) 0%
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto var(--spacing-small);
-  position: relative;
-}
-
-.skillLevel {
-  position: absolute;
-  font-size: 1.2rem;
-  color: var(--color-text);
+.iconWrapper {
+  font-size: 50px; /* Dimensiunea iconiței */
+  margin-bottom: var(--spacing-small);
 }
 
 .skillCard h3 {
@@ -83,7 +65,6 @@
   color: var(--color-subtext);
 }
 
-/* Media queries for responsiveness */
 @media (max-width: 768px) {
   .skillCard {
     width: calc(50% - var(--spacing-medium));

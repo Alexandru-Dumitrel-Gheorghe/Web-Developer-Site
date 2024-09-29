@@ -1,5 +1,3 @@
-// src/components/Dienstleistungen/Dienstleistungen.jsx
-
 import React from "react";
 import styles from "./Dienstleistungen.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,10 +7,10 @@ import {
   faSearch,
   faTools,
 } from "@fortawesome/free-solid-svg-icons";
-import useScrollAnimation from "../hooks/useScrollAnimation"; // Importă hook-ul
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const Dienstleistungen = () => {
-  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
+  const scrollRef = useScrollAnimation();
 
   return (
     <section className={`${styles.servicesSection} fade-in`} ref={scrollRef}>
@@ -20,7 +18,10 @@ const Dienstleistungen = () => {
       <div className={styles.servicesContainer}>
         <div className={styles.service}>
           <div className={styles.iconContainer}>
-            <FontAwesomeIcon icon={faCode} className={styles.icon} />
+            <FontAwesomeIcon
+              icon={faCode}
+              className={`${styles.icon} ${styles.webDevelopment}`}
+            />
           </div>
           <h3>Web-Entwicklung</h3>
           <p>
@@ -30,7 +31,10 @@ const Dienstleistungen = () => {
         </div>
         <div className={styles.service}>
           <div className={styles.iconContainer}>
-            <FontAwesomeIcon icon={faMobileAlt} className={styles.icon} />
+            <FontAwesomeIcon
+              icon={faMobileAlt}
+              className={`${styles.icon} ${styles.responsiveDesign}`}
+            />
           </div>
           <h3>Responsive Design</h3>
           <p>
@@ -40,7 +44,10 @@ const Dienstleistungen = () => {
         </div>
         <div className={styles.service}>
           <div className={styles.iconContainer}>
-            <FontAwesomeIcon icon={faSearch} className={styles.icon} />
+            <FontAwesomeIcon
+              icon={faSearch}
+              className={`${styles.icon} ${styles.seo}`}
+            />
           </div>
           <h3>SEO-Optimierung</h3>
           <p>
@@ -50,7 +57,10 @@ const Dienstleistungen = () => {
         </div>
         <div className={styles.service}>
           <div className={styles.iconContainer}>
-            <FontAwesomeIcon icon={faTools} className={styles.icon} />
+            <FontAwesomeIcon
+              icon={faTools}
+              className={`${styles.icon} ${styles.maintenance}`}
+            />
           </div>
           <h3>Wartung & Support</h3>
           <p>

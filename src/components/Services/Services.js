@@ -1,11 +1,10 @@
-// src/components/Services/Services.jsx
-
 import React from "react";
+import { FaReact, FaNodeJs, FaJs } from "react-icons/fa"; // Importă iconițele din react-icons
 import styles from "./Services.module.css";
-import useScrollAnimation from "../hooks/useScrollAnimation"; // Importă hook-ul
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const Services = () => {
-  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
+  const scrollRef = useScrollAnimation();
 
   const handleLearnMore = (technology) => {
     let url = "";
@@ -23,7 +22,7 @@ const Services = () => {
         break;
     }
     if (url) {
-      window.open(url, "_blank"); // Open the URL in a new tab
+      window.open(url, "_blank");
     }
   };
 
@@ -33,11 +32,8 @@ const Services = () => {
       <div className={styles.cardsContainer}>
         {/* Card 1 - React */}
         <article className={styles.card}>
-          <div className={styles.profileImage}>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
-              alt="React logo"
-            />
+          <div className={`${styles.iconContainer} ${styles.reactIcon}`}>
+            <FaReact className={styles.icon} />
           </div>
           <h3 className={styles.cardTitle}>React</h3>
           <p className={styles.cardDescription}>
@@ -56,11 +52,8 @@ const Services = () => {
 
         {/* Card 2 - Node.js */}
         <article className={styles.card}>
-          <div className={styles.profileImage}>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg"
-              alt="Node.js logo"
-            />
+          <div className={`${styles.iconContainer} ${styles.nodeIcon}`}>
+            <FaNodeJs className={styles.icon} />
           </div>
           <h3 className={styles.cardTitle}>Node.js</h3>
           <p className={styles.cardDescription}>
@@ -79,11 +72,8 @@ const Services = () => {
 
         {/* Card 3 - JavaScript */}
         <article className={styles.card}>
-          <div className={styles.profileImage}>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
-              alt="JavaScript logo"
-            />
+          <div className={`${styles.iconContainer} ${styles.jsIcon}`}>
+            <FaJs className={styles.icon} />
           </div>
           <h3 className={styles.cardTitle}>JavaScript</h3>
           <p className={styles.cardDescription}>

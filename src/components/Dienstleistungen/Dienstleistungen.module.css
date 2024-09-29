@@ -17,7 +17,6 @@
   font-weight: bold;
 }
 
-/* Animated line under heading */
 .heading::after {
   content: "";
   display: block;
@@ -30,7 +29,6 @@
   animation: slideIn 1s ease-in-out forwards;
 }
 
-/* Container for cards */
 .servicesContainer {
   display: flex;
   justify-content: space-evenly;
@@ -40,7 +38,6 @@
   flex-wrap: wrap;
 }
 
-/* Individual cards */
 .service {
   background: var(--color-card-background);
   padding: var(--spacing-large) var(--spacing-small);
@@ -56,7 +53,12 @@
   height: 42vh;
 }
 
-/* Animated border */
+.service:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: var(--box-shadow-hover);
+  background: linear-gradient(135deg, #1b2028, #0b1a30 80%);
+}
+
 .service::before {
   content: "";
   position: absolute;
@@ -70,17 +72,10 @@
   z-index: 1;
 }
 
-.service:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: var(--box-shadow-hover);
-  background: linear-gradient(135deg, #1b2028, #0b1a30 80%);
-}
-
 .service:hover::before {
   border-color: var(--color-primary);
 }
 
-/* Icon animation */
 .iconContainer {
   display: flex;
   justify-content: center;
@@ -91,8 +86,23 @@
 
 .icon {
   font-size: 3rem;
-  color: var(--color-primary);
   transition: color 0.4s ease;
+}
+
+.webDevelopment {
+  color: #e34f26; /* Culoare pentru Web-Entwicklung */
+}
+
+.responsiveDesign {
+  color: #61dafb; /* Culoare pentru Responsive Design */
+}
+
+.seo {
+  color: #4caf50; /* Culoare pentru SEO */
+}
+
+.maintenance {
+  color: #ffc107; /* Culoare pentru Maintenance */
 }
 
 .service:hover .iconContainer {
@@ -115,24 +125,6 @@ p {
   color: var(--color-subtext);
   line-height: 1.6;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-/* Primary button styles */
-.primaryButton {
-  background-color: var(--color-primary);
-  color: var(--color-text);
-  border-radius: 50px;
-  padding: var(--spacing-small) var(--spacing-medium);
-  font-size: var(--font-size-button);
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.4s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.primaryButton:hover {
-  background-color: var(--color-secondary);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
 /* Keyframe animations */

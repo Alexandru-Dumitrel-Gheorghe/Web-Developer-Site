@@ -6,7 +6,7 @@ const WhatsAppButton = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = () => {
-    const phoneNumber = "004916093091768";
+    const phoneNumber = "+4916093091768";
     const message = "Hallo, ich habe eine Frage!";
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
