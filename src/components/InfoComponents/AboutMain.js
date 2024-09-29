@@ -2,25 +2,28 @@ import React, { useState, useEffect } from "react";
 import styles from "./AboutMain.module.css";
 import profileImage from "../../assets/alex2.jpg";
 import CountUp from "react-countup";
+import useScrollAnimation from "../hooks/useScrollAnimation"; // Importă hook-ul
 
 const AboutMain = () => {
   const [restart, setRestart] = useState(false);
+  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
 
-  // Resetează numărătoarea la fiecare 10 secunde
   useEffect(() => {
     const interval = setInterval(() => {
-      setRestart((prev) => !prev); // Schimbă starea pentru a forța resetarea
-    }, 5000); // Interval de 10 secunde pentru resetare
-    return () => clearInterval(interval); // Curăță intervalul când componenta este demontată
+      setRestart((prev) => !prev);
+    }, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className={styles.aboutMain}>
+    <section className={styles.aboutMain} ref={scrollRef}>
+      <div className={styles.overlay}></div>
       <div className={styles.container}>
         <div className={styles.textSection}>
-          <h1>
+          <h1 className={styles.title}>
             Hallo, ich bin <span>Alexandru Gheorghe</span>
           </h1>
+          <div className={styles.underline}></div> {/* Linia decorativă */}
           <p className={styles.description}>
             Ich bin ein leidenschaftlicher Webentwickler mit über 2 Jahren
             Erfahrung in der Erstellung von benutzerfreundlichen und modernen
@@ -45,13 +48,7 @@ const AboutMain = () => {
       <div className={styles.statsSection}>
         <div className={styles.statItem}>
           <h2>
-            <CountUp
-              key={restart} // Cheia va fi schimbată când restart se schimbă, resetând numărătoarea
-              start={0}
-              end={50}
-              duration={3}
-            />
-            +
+            <CountUp key={restart} start={0} end={50} duration={3} />+
           </h2>
           <p>Glückliche Kunden</p>
         </div>

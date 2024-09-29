@@ -1,3 +1,4 @@
+/* General styles */
 .aboutMain {
   display: flex;
   flex-direction: column;
@@ -7,6 +8,9 @@
   color: var(--color-text);
   padding: 50px 20px;
   margin-top: 80px;
+  overflow: hidden;
+  position: relative;
+  transition: background-color 0.4s ease;
 }
 
 .container {
@@ -16,28 +20,50 @@
   width: 100%;
   max-width: 1200px;
   gap: 50px;
+  animation: fadeIn 1s ease-in-out;
+  position: relative;
+  z-index: 2; /* Ensure content appears above the overlay */
 }
 
 .textSection {
   flex: 1;
   text-align: left;
+  transition: transform 0.4s ease;
 }
 
-.textSection h1 {
-  font-size: 3rem;
+.textSection:hover {
+  transform: translateY(-5px);
+}
+
+.title {
+  font-size: var(--font-size-title);
   font-weight: bold;
   color: var(--color-primary);
   margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
-.textSection h1 span {
-  color: var(--color-secondary); /* Secondary color for the name */
+.title span {
+  color: var(--color-secondary);
+}
+
+/* Decorative underline */
+.underline {
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-primary);
+  margin: 0 auto var(--spacing-medium);
+  border-radius: 2px;
+  animation: slideIn 1s ease-in-out forwards;
 }
 
 .description {
-  font-size: 1.5rem;
+  font-size: var(--font-size-description);
   color: var(--color-subtext);
   margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
 }
 
 .contactButton {
@@ -49,16 +75,23 @@
   font-size: 1.2rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: var(--box-shadow-normal);
 }
 
 .contactButton:hover {
   background-color: var(--color-secondary);
   transform: scale(1.05);
+  box-shadow: var(--box-shadow-hover);
 }
 
 .imageSection {
   flex: 1;
   text-align: center;
+  transition: transform 0.4s ease;
+}
+
+.imageSection:hover {
+  transform: scale(1.05);
 }
 
 .profileImage {
@@ -67,6 +100,7 @@
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .statsSection {
@@ -75,10 +109,17 @@
   align-items: center;
   margin-top: 50px;
   width: 100%;
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
 }
 
 .statItem {
   text-align: center;
+  transition: transform 0.4s ease;
+}
+
+.statItem:hover {
+  transform: translateY(-10px);
 }
 
 .statItem h2 {
@@ -91,61 +132,82 @@
   color: var(--color-subtext);
 }
 
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
+}
+
 /* Media Queries */
 @media (max-width: 1024px) {
   .container {
-    flex-direction: column; /* Stack elements vertically */
-    text-align: center; /* Center text */
+    flex-direction: column;
+    text-align: center;
   }
 
   .textSection {
     padding-right: 0;
-    margin-bottom: 30px; /* Add space below the text section */
+    margin-bottom: 30px;
   }
 
   .profileImage {
-    width: 250px; /* Reduced width for smaller screens */
-    height: 250px; /* Ensure height matches width */
-    margin-bottom: 20px; /* Add space below the image */
+    width: 250px;
+    height: 250px;
+    margin-bottom: 20px;
   }
 
   .statsSection {
-    flex-direction: column; /* Stack stats vertically */
-    gap: 20px; /* Add space between stats */
-    align-items: center; /* Center stats */
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
   }
 
   .statItem {
-    width: 80%; /* Limit width for better alignment */
+    width: 80%;
   }
 }
 
 @media (max-width: 768px) {
   .profileImage {
-    width: 200px; /* Further adjust width for smaller screens */
-    height: 200px; /* Ensure height matches width */
+    width: 200px;
+    height: 200px;
   }
 
   .statItem h2 {
-    font-size: 2.5rem; /* Smaller font size for stat titles */
+    font-size: 2.5rem;
   }
 
   .statItem p {
-    font-size: 1rem; /* Smaller font size for stat descriptions */
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .profileImage {
-    width: 150px; /* Further reduce width for very small screens */
-    height: 150px; /* Ensure height matches width */
+    width: 150px;
+    height: 150px;
   }
 
   .statItem h2 {
-    font-size: 2rem; /* Even smaller font size for stat titles */
+    font-size: 2rem;
   }
 
   .statItem p {
-    font-size: 0.9rem; /* Smaller font size for stat descriptions */
+    font-size: 0.9rem;
   }
 }

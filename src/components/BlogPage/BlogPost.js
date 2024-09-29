@@ -1,9 +1,12 @@
 import React from "react";
 import styles from "./BlogPost.module.css"; // Ensure this path is correct
+import useScrollAnimation from "../hooks/useScrollAnimation"; // Importă hook-ul
 
 const BlogPost = () => {
+  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
+
   return (
-    <div className={styles.blogPost}>
+    <div className={styles.blogPost} ref={scrollRef}>
       <h2 className={styles.title}>Mein Weg als Webentwickler</h2>
       <p className={styles.date}>
         Veröffentlicht am: {new Date().toLocaleDateString()}

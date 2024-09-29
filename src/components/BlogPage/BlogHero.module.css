@@ -1,13 +1,23 @@
+/* Prevent horizontal scrolling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Blog Hero Section */
 .blogHero {
   display: flex;
-  align-items: center; /* Center vertically */
+  align-items: center;
   justify-content: center;
-  flex-direction: column; /* Stack items on smaller screens */
+  flex-direction: column;
   padding: 50px 20px;
   width: 100%;
-  min-height: 100vh; /* Full viewport height */
-  background-color: var(--color-background); /* Dark background */
-  box-sizing: border-box;
+  min-height: 80vh; /* Adjusted height */
   background: linear-gradient(
       135deg,
       rgba(13, 13, 13, 0.9),
@@ -15,14 +25,38 @@
     ),
     url("https://images.unsplash.com/photo-1501139083538-0139583c060f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
       center/cover no-repeat;
-  color: white;
-  overflow: hidden; /* Prevent content overflow */
+  color: var(--color-text);
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay for better contrast */
+  z-index: 1;
+  border-radius: var(--border-radius);
 }
 
 .content {
-  max-width: 800px; /* Limit content width */
-  text-align: center; /* Center text */
-  padding: 0 20px; /* Add padding for smaller screens */
+  position: relative;
+  z-index: 2; /* Ensure content appears above overlay */
+  max-width: 800px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Decorative underline */
+.underline {
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-primary);
+  margin: 0 auto var(--spacing-medium);
+  border-radius: 2px;
+  animation: slideIn 1s ease-in-out forwards;
 }
 
 .title {
@@ -39,9 +73,19 @@
   margin-bottom: var(--spacing-medium);
 }
 
+/* Keyframe for underline animation */
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
+}
+
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-  .hero {
+  .blogHero {
     height: 50vh; /* Adjust height for medium screens */
   }
 
@@ -49,13 +93,13 @@
     font-size: 2.5rem; /* Adjust title size */
   }
 
-  .subtitle {
+  .description {
     font-size: 1.5rem; /* Adjust subtitle size */
   }
 }
 
 @media (max-width: 480px) {
-  .hero {
+  .blogHero {
     height: 40vh; /* Adjust height for small screens */
   }
 
@@ -63,7 +107,7 @@
     font-size: 2rem; /* Further reduce title size */
   }
 
-  .subtitle {
+  .description {
     font-size: 1.2rem; /* Further reduce subtitle size */
   }
 }

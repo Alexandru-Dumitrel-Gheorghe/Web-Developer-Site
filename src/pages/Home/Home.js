@@ -8,12 +8,15 @@ import Faq from "../../components/FAQ/Faq";
 import VideoInfo from "../../components/VideoInfo/VideoInfo";
 import WarumMichWählen from "../../components/WarumMichWählen/WarumMichWählen";
 import BlogIntro from "../../components/BlogPage/BlogIntro";
-import Testimonials from "../../components/Testimonials/Testimonials";
 import Certifications from "../../components/Certifications/Certifications";
 import Footer from "../../components/Footer/Footer";
+import useScrollAnimation from "../../components/hooks/useScrollAnimation"; // Importă hook-ul
+
 const Home = () => {
+  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
+
   return (
-    <div className={styles.homeContainer}>
+    <div className={styles.homeContainer} ref={scrollRef}>
       <Hero />
       <Dienstleistungen />
       <CallToAction />
@@ -21,7 +24,6 @@ const Home = () => {
       <Faq />
       <WarumMichWählen />
       <VideoInfo />
-      <Testimonials />
       <BlogIntro />
       <Certifications />
       <Footer />

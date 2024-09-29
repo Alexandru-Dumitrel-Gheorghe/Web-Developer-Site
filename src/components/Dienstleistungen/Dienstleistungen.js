@@ -1,3 +1,5 @@
+// src/components/Dienstleistungen/Dienstleistungen.jsx
+
 import React from "react";
 import styles from "./Dienstleistungen.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,10 +9,13 @@ import {
   faSearch,
   faTools,
 } from "@fortawesome/free-solid-svg-icons";
+import useScrollAnimation from "../hooks/useScrollAnimation"; // Importă hook-ul
 
 const Dienstleistungen = () => {
+  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
+
   return (
-    <section className={styles.servicesSection}>
+    <section className={`${styles.servicesSection} fade-in`} ref={scrollRef}>
       <h2 className={styles.heading}>Meine Dienstleistungen</h2>
       <div className={styles.servicesContainer}>
         <div className={styles.service}>

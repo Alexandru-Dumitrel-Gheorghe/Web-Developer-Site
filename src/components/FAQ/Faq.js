@@ -1,3 +1,5 @@
+// src/components/Faq/Faq.jsx
+
 import React, { useState } from "react";
 import styles from "./Faq.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,6 +8,7 @@ import {
   faChevronUp,
   faQuestionCircle,
 } from "@fortawesome/free-solid-svg-icons";
+import useScrollAnimation from "../hooks/useScrollAnimation"; // Importă hook-ul
 
 const faqData = [
   {
@@ -52,13 +55,17 @@ const faqData = [
 
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
 
   const toggleAnswer = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <section className={styles.faqSection}>
+    <section
+      className={`${styles.faqSection} fade-in`}
+      ref={scrollRef} // Adaugă referința pentru animație
+    >
       <h2 className={styles.heading}>Häufig gestellte Fragen</h2>
       <div className={styles.faqContainer}>
         {faqData.map((item, index) => (

@@ -1,7 +1,12 @@
+// src/components/Services/Services.jsx
+
 import React from "react";
 import styles from "./Services.module.css";
+import useScrollAnimation from "../hooks/useScrollAnimation"; // Importă hook-ul
 
 const Services = () => {
+  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
+
   const handleLearnMore = (technology) => {
     let url = "";
     switch (technology) {
@@ -23,7 +28,7 @@ const Services = () => {
   };
 
   return (
-    <section className={styles.servicesContainer}>
+    <section className={`${styles.servicesContainer} fade-in`} ref={scrollRef}>
       <h2 className={styles.heading}>Welche Technologien verwende ich?</h2>
       <div className={styles.cardsContainer}>
         {/* Card 1 - React */}

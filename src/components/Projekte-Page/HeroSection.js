@@ -1,25 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./HeroSection.module.css";
-import { FaBriefcase, FaUsers, FaStar, FaArrowDown } from "react-icons/fa";
+import { FaArrowDown, FaCode, FaLaptopCode, FaDatabase } from "react-icons/fa";
+import useScrollAnimation from "../hooks/useScrollAnimation"; // Importă hook-ul
 
-function HeroSectionAlternative() {
-  const [stats, setStats] = useState({
-    projects: 0,
-    clients: 0,
-    reviews: 0,
-  });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setStats((prev) => ({
-        projects: prev.projects < 20 ? prev.projects + 1 : 20,
-        clients: prev.clients < 100 ? prev.clients + 1 : 100,
-        reviews: prev.reviews < 500 ? prev.reviews + 10 : 500,
-      }));
-    }, 100);
-
-    return () => clearInterval(timer);
-  }, []);
+function HeroSection() {
+  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
 
   const scrollToContent = () => {
     const nextSection = document.getElementById("next-section");
@@ -29,39 +14,28 @@ function HeroSectionAlternative() {
   };
 
   return (
-    <section className={styles.hero}>
-      <div className={styles.overlay}></div>
-      <div className={styles.content}>
-        <h1 className={styles.title}>Willkommen in meinem Portfolio</h1>
-        <p className={styles.subtitle}>
-          Entdecken Sie meine aktuellen Projekte und erfolgreichen
-          Kooperationen.
-        </p>
-
-        <div className={styles.stats}>
-          <div className={styles.stat}>
-            <FaBriefcase className={styles.icon} />
-            <span className={styles.number}>{stats.projects}+</span>
-            <span className={styles.label}>Projekte</span>
-          </div>
-          <div className={styles.stat}>
-            <FaUsers className={styles.icon} />
-            <span className={styles.number}>{stats.clients}+</span>
-            <span className={styles.label}>Kunden</span>
-          </div>
-          <div className={styles.stat}>
-            <FaStar className={styles.icon} />
-            <span className={styles.number}>{stats.reviews}+</span>
-            <span className={styles.label}>Bewertungen</span>
+    <section className={styles.hero} ref={scrollRef}>
+      <div className={styles.overlay}></div> {/* Overlay */}
+      <div className={styles.heroContent}>
+        <div className={styles.textSection}>
+          <h1 className={styles.title}>Willkommen zu meinen Projekten</h1>
+          <div className={styles.underline}></div> {/* Decorative line */}
+          <p className={styles.subtitle}>
+            Entdecken Sie meine vielfältigen Webentwicklungsprojekte – von
+            dynamischen Webanwendungen bis zu benutzerfreundlichen Designs.
+          </p>
+          <div className={styles.iconContainer}>
+            <FaCode className={styles.icon} />
+            <FaLaptopCode className={styles.icon} />
+            <FaDatabase className={styles.icon} />
           </div>
         </div>
-        <div className={styles.scrollIndicator} onClick={scrollToContent}>
-          <FaArrowDown className={styles.arrow} />
-          <span>Mehr erfahren</span>
-        </div>
+      </div>
+      <div className={styles.scrollIndicator} onClick={scrollToContent}>
+        <FaArrowDown className={styles.arrow} />
       </div>
     </section>
   );
 }
 
-export default HeroSectionAlternative;
+export default HeroSection;

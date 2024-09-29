@@ -1,219 +1,223 @@
-.heading,
-.subHeading {
-  font-size: var(--font-size-title);
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  text-align: center; /* Center the headings */
-  margin-bottom: var(--spacing-medium);
-}
-
-.subHeading {
-  margin-top: var(--spacing-large);
-  letter-spacing: 1.2px;
-}
-
-.contactFormSection {
-  padding: var(--spacing-large);
+.contactSection {
+  padding: var(--spacing-large) var(--spacing-medium);
+  background: var(--color-background);
   color: var(--color-text);
-  max-width: 1200px;
-  margin: 50px auto; /* Center the contact form section */
-  display: flex;
-  justify-content: center; /* Center contents horizontally */
-  align-items: center; /* Center contents vertically */
+  font-family: var(--font-primary);
 }
 
 .container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column; /* Stack items vertically for smaller screens */
-  align-items: center; /* Center align all items */
+  flex-wrap: wrap;
   gap: var(--spacing-large);
-  width: 100%; /* Full width to adapt to screen size */
-  max-width: 600px; /* Set a max-width for the container */
-  padding: 0 var(--spacing-small); /* Add padding to the sides */
+  justify-content: center;
 }
 
-.formContainer,
-.contactInfo {
-  width: 100%; /* Set to 100% width for consistency */
-  padding: var(--spacing-medium);
+.formWrapper,
+.infoWrapper {
+  flex: 1 1 500px;
   background: var(--color-card-background);
+  padding: var(--spacing-medium);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-normal);
-  margin-bottom: var(--spacing-medium);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center content inside */
+  align-items: center;
+  text-align: center;
+  margin-top: var(--spacing-large);
 }
 
-.description,
+.formWrapper:hover,
+.infoWrapper:hover {
+  box-shadow: var(--box-shadow-hover);
+  transform: translateY(-5px);
+}
+
+.title,
+.infoTitle {
+  font-size: var(--font-size-title);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-medium);
+}
+
+.subtitle,
 .infoDescription {
   font-size: var(--font-size-description);
   color: var(--color-subtext);
-  margin-bottom: var(--spacing-large);
-  text-align: center; /* Center descriptions */
+  margin-bottom: var(--spacing-medium);
 }
 
-.infoGroup {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center align items */
-  gap: var(--spacing-small);
-}
-
-.contactForm {
-  width: 100%;
+.form {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-medium);
-}
-
-.formGroup {
-  position: relative;
-  display: flex;
-  align-items: center;
-  background: #fff;
-  padding: var(--spacing-small);
-  border-radius: var(--border-radius);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: var(--spacing-medium);
-  width: 100%; /* Ensure full width */
-}
-
-.formGroup:last-child {
-  margin-bottom: 0;
-}
-
-.formGroup:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.icon {
-  margin-right: var(--spacing-small);
-  color: var(--color-primary);
-  flex-shrink: 0;
-}
-
-input,
-textarea {
   width: 100%;
-  border: none;
-  padding: var(--spacing-small);
-  font-size: var(--font-size-description);
-  background: transparent;
-  outline: none;
-  color: #000;
 }
 
-textarea {
-  resize: none;
+.inputGroup,
+.textareaGroup {
+  position: relative;
+  margin-bottom: var(--spacing-small);
+}
+
+.icon,
+.infoIcon {
+  font-size: 1rem; /* Unified icon size */
+  color: var(--color-primary);
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 12px var(--spacing-medium);
+  padding-left: 50px; /* Adjusted padding to match the new icon size */
+  border: 1px solid var(--color-subtext);
+  border-radius: var(--border-radius);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--color-subtext);
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 5px var(--color-primary);
 }
 
 .submitButton {
-  font-size: var(--font-size-button);
-  background-color: var(--color-primary);
-  color: var(--color-text);
   padding: var(--spacing-small) var(--spacing-medium);
+  background: var(--color-primary);
+  color: var(--color-text);
   border: none;
   border-radius: var(--border-radius);
+  font-size: var(--font-size-button);
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  width: 100%; /* Button will take full width */
-  max-width: 300px; /* Set a max-width for larger screens */
-  margin: var(--spacing-medium) 0;
+  width: 30%;
+  margin: 0 auto;
 }
 
 .submitButton:hover {
   background-color: var(--color-secondary);
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.socialIcons {
+.infoDetails {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-medium); /* Consistent spacing between items */
+  margin-bottom: var(--spacing-large);
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-medium);
+  color: var(--color-subtext);
+  padding: var(--spacing-small) 0;
+}
+
+.socialMedia {
+  display: flex;
   gap: var(--spacing-small);
+  justify-content: center;
   margin-top: var(--spacing-medium);
 }
 
 .socialLink {
-  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-background);
   color: var(--color-primary);
-  transition: color 0.3s ease, transform 0.3s ease;
-  background: none;
-  border: none;
-  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1.8rem; /* Unified icon size for social icons */
 }
 
 .socialLink:hover {
-  color: var(--color-secondary);
-  transform: scale(1.2);
-}
-
-/* Hidden labels */
-.hiddenLabel {
-  position: absolute;
-  left: -9999px;
-}
-
-/* Focus states for accessibility */
-input:focus,
-textarea:focus {
-  border: 2px solid var(--color-primary);
-  box-shadow: 0 0 5px var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  transform: scale(1.15);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center align all items */
-    width: 100%; /* Ensure full width for mobile */
+    flex-direction: column;
+    align-items: center;
   }
 
-  .formContainer,
-  .contactInfo {
-    flex: 1; /* Allow flex items to grow and fill available space */
-    width: 100%; /* Set width to 100% for mobile */
-    max-width: 100%; /* Ensure they can take full width */
-    padding: var(--spacing-small); /* Adjust padding */
-    margin: 0; /* Remove margin to avoid shifting */
-    text-align: center; /* Center text on mobile */
+  .icon,
+  .infoIcon {
+    font-size: 1rem; /* Unified icon size */
+    color: var(--color-primary);
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    transform: translateY(-50%);
+  }
+
+  .formWrapper,
+  .infoWrapper {
+    flex: 1 1 100%;
+    max-width: 90%;
+    margin-bottom: var(--spacing-large);
+  }
+
+  .title,
+  .infoTitle {
+    font-size: 1.5rem;
   }
 
   .submitButton {
-    width: 100%; /* Button will take full width */
-    max-width: none; /* Remove max width for small screens */
+    font-size: 1rem;
   }
 
-  .infoGroup {
-    align-items: center; /* Center information on mobile */
+  .input,
+  .textarea {
+    padding: 12px var(--spacing-medium);
+  }
+}
+
+@media (max-width: 480px) {
+  .formWrapper,
+  .infoWrapper {
+    max-width: 100%;
+    padding: var(--spacing-small);
   }
 
-  .heading,
-  .subHeading {
-    text-align: center; /* Center titles on mobile */
-    width: 100%; /* Set a fixed width */
-    max-width: 600px; /* Optional: Set a maximum width */
-    margin: 0 auto; /* Center horizontally */
+  .icon,
+  .infoIcon {
+    font-size: 1rem; /* Unified icon size */
+    color: var(--color-primary);
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    transform: translateY(-50%);
   }
 
-  .description,
-  .infoDescription {
-    text-align: center; /* Center descriptions on mobile */
+  .title,
+  .infoTitle {
+    font-size: 1.4rem;
   }
 
-  .infoDescription {
-    font-size: var(--font-size-description);
-    padding: 0 var(--spacing-small); /* Adjust padding */
-  }
-
-  .socialIcons {
-    flex-wrap: wrap; /* Wrap social icons on smaller screens */
-  }
-
-  .socialLink {
-    flex: 1 0 40%; /* Allow social links to grow, stacking on smaller screens */
-    text-align: center; /* Center align text */
+  .submitButton {
+    font-size: 0.9rem;
   }
 }

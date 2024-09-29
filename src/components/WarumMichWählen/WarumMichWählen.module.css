@@ -5,6 +5,9 @@
   text-align: center;
   border-radius: var(--border-radius);
   margin-top: 6rem;
+  overflow: hidden;
+  position: relative;
+  transition: background-color 0.4s ease;
 }
 
 .title {
@@ -21,11 +24,12 @@
   background-color: var(--color-primary);
   margin: var(--spacing-small) auto;
   border-radius: 2px;
+  animation: slideIn 1s ease-in-out forwards;
 }
 
-/* Stilizare Carousel */
+/* Carousel Styling */
 .carouselContainer {
-  perspective: 1000px; /* Necesită pentru efectul 3D */
+  perspective: 1200px;
 }
 
 .carousel {
@@ -46,6 +50,9 @@
   max-width: 600px;
   margin: 0 auto;
   backface-visibility: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1.5s ease-in forwards;
 }
 
 .carouselItem h3 {
@@ -60,7 +67,7 @@
   line-height: 1.6;
 }
 
-/* Efecte 3D */
+/* 3D Rotation Effects */
 .rotateNext {
   transform: rotateY(-90deg);
 }
@@ -69,7 +76,7 @@
   transform: rotateY(90deg);
 }
 
-/* Stilizare puncte */
+/* Dot Styling */
 .dotsContainer {
   margin-top: var(--spacing-medium);
   display: flex;
@@ -85,18 +92,41 @@
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .activeDot {
   background-color: var(--color-primary);
+  transform: scale(1.2);
 }
 
 .dot:hover {
   background-color: var(--color-secondary);
+  transform: scale(1.2);
 }
 
-/* Media Queries pentru design responsive */
+/* Keyframe Animations */
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
   .carouselItem {
     max-width: 500px;

@@ -1,282 +1,112 @@
-/* ProjectsSection.module.css */
-
 .projectsSection {
   padding: var(--spacing-large) var(--spacing-medium);
-  background: var(--color-background);
+  background-color: var(--color-background);
   color: var(--color-text);
 }
 
 .container {
-  max-width: 1200px; /* Pentru o centrare mai bună pe ecrane mari */
+  max-width: 1200px;
   margin: 0 auto;
   text-align: center;
 }
 
 .title {
   font-size: var(--font-size-title);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text); /* Culoare albă pentru titlu */
   margin-bottom: var(--spacing-large);
-  letter-spacing: var(--letter-spacing-wide);
   text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
 }
 
-.filters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: var(--spacing-large);
-  gap: var(--spacing-small);
-}
-
-.filterButton {
-  padding: var(--spacing-small) var(--spacing-medium);
-  background-color: var(--color-background-light);
-  color: var(--color-text);
-  border: 1px solid var(--color-primary);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: var(--border-radius);
-  font-size: var(--font-size-text);
-  font-family: var(--font-primary);
-}
-
-.filterButton.active {
-  background-color: var(--color-primary);
-  color: #fff;
-  border-color: var(--color-primary);
-}
-
-.filterButton:hover {
-  background-color: var(--color-primary);
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-.projectsGrid {
+.masonryGrid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(280px, 1fr)
-  ); /* Face card-urile responsive */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--spacing-large);
-  justify-items: center; /* Centrează card-urile în grid */
 }
 
 .projectCard {
-  background: var(--color-card-background);
-  padding: var(--spacing-medium);
+  position: relative;
+  overflow: hidden;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-normal);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%; /* Ocupă toată lățimea celulei grid */
-  max-width: 350px;
 }
 
-.projectCard:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--box-shadow-hover);
+.imageContainer {
+  position: relative;
+  overflow: hidden;
 }
 
 .projectImage {
   width: 100%;
-  height: 180px;
+  height: 100%;
   object-fit: cover;
-  border-radius: var(--border-radius);
-  margin-bottom: var(--spacing-medium);
   transition: transform 0.3s ease;
 }
 
-.projectCard:hover .projectImage {
-  transform: scale(1.05);
-}
-
-.projectInfo {
-  flex: 1;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  opacity: 0;
   display: flex;
   flex-direction: column;
-  text-align: left;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-medium);
+  transition: opacity 0.3s ease;
+}
+
+.projectCard:hover .overlay {
+  opacity: 1;
 }
 
 .projectTitle {
-  font-size: var(--font-size-title-secondary);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-primary);
+  font-size: 1.5rem;
   margin-bottom: var(--spacing-small);
 }
 
 .projectDescription {
-  font-size: var(--font-size-description);
-  color: var(--color-subtext);
+  font-size: 1rem;
   margin-bottom: var(--spacing-medium);
-  flex-grow: 1;
 }
 
 .technologies {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
   margin-bottom: var(--spacing-medium);
   padding: 0;
 }
 
 .techItem {
-  background-color: #e0e7ff;
-  color: var(--color-primary);
+  background-color: var(--color-secondary);
+  color: #fff;
   padding: 5px 10px;
   border-radius: 12px;
-  font-size: var(--font-size-text-small);
-  font-family: var(--font-primary);
+  font-size: 0.8rem;
 }
 
 .links {
   display: flex;
-  gap: 10px;
-  justify-content: flex-start;
+  gap: 15px;
 }
 
-.githubLink,
-.projectLink {
-  background-color: var(--color-primary);
-  color: var(--color-text);
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 25px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  font-size: var(--font-size-text);
-  font-family: var(--font-primary);
+.iconLink {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
 }
 
-.githubLink:hover,
-.projectLink:hover {
-  background-color: var(--color-secondary);
-  transform: translateY(-3px);
+.iconLink:hover {
+  color: var(--color-secondary);
 }
 
-/* Media Queries pentru Responsivitate */
-@media (max-width: 1024px) {
-  .title {
-    font-size: var(--font-size-title-mobile);
-  }
-
-  .filterButton {
-    padding: 8px 16px;
-    font-size: var(--font-size-text-small);
-  }
-
-  .projectsGrid {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(250px, 1fr)
-    ); /* Ajustare pentru ecrane mai mari */
-    gap: var(--spacing-medium);
-  }
-
-  .projectImage {
-    height: 150px;
-  }
-
-  .projectTitle {
-    font-size: var(--font-size-title-secondary-mobile);
-  }
-
-  .projectDescription {
-    font-size: var(--font-size-text-small);
-  }
-
-  .techItem {
-    font-size: var(--font-size-text-xsmall);
-    padding: 4px 8px;
-  }
-
-  .githubLink,
-  .projectLink {
-    padding: 6px 12px;
-    font-size: var(--font-size-text-small);
-  }
-}
-
-@media (max-width: 768px) {
-  .title {
-    font-size: 1.8rem;
-  }
-
-  .filterButton {
-    font-size: 0.9rem;
-  }
-
-  .projectsGrid {
-    grid-template-columns: 1fr; /* Stack card-urile pe ecrane mici */
-    gap: var(--spacing-medium);
-  }
-
-  .projectCard {
-    max-width: 90%; /* Ocupă aproape toată lățimea pe mobile */
-  }
-
-  .projectImage {
-    height: 150px;
-  }
-
-  .projectTitle {
-    font-size: var(--font-size-title-secondary-mobile);
-  }
-
-  .projectDescription {
-    font-size: var(--font-size-text-small);
-  }
-
-  .techItem {
-    font-size: var(--font-size-text-xsmall);
-    padding: 4px 8px;
-  }
-
-  .githubLink,
-  .projectLink {
-    padding: 6px 12px;
-    font-size: var(--font-size-text-small);
-  }
-}
-
-@media (max-width: 480px) {
-  .projectsSection {
-    padding: var(--spacing-large) var(--spacing-small);
-  }
-
-  .title {
-    font-size: 1.6rem;
-  }
-
-  .filterButton {
-    padding: 6px 12px;
-    font-size: 0.8rem;
-  }
-
-  .projectImage {
-    height: 120px;
-  }
-
-  .projectTitle {
-    font-size: 1.4rem;
-  }
-
-  .projectDescription {
-    font-size: var(--font-size-text-xsmall);
-  }
-
-  .techItem {
-    font-size: 0.8rem;
-    padding: 3px 6px;
-  }
-
-  .githubLink,
-  .projectLink {
-    padding: 5px 10px;
-    font-size: var(--font-size-text-xsmall);
-  }
+.projectCard:hover .projectImage {
+  transform: scale(1.1);
 }

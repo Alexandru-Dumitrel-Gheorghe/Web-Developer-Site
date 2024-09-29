@@ -6,10 +6,13 @@ import AboutExperience from "../../components/InfoComponents/AboutExperience"; /
 import Footer from "../../components/Footer/Footer"; // Corrected path
 import styles from "./About.module.css";
 import CallToAction from "../../components/CallToAction/CallToAction"; // Corrected path
+import useScrollAnimation from "../../components/hooks/useScrollAnimation"; // Importă hook-ul
 
 const About = () => {
+  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
+
   return (
-    <div className={styles.aboutPage}>
+    <div className={styles.aboutPage} ref={scrollRef}>
       <AboutMain />
       <AboutExperience />
       <CallToAction />

@@ -4,6 +4,9 @@
   color: var(--color-text);
   text-align: center;
   margin-top: 6rem;
+  overflow: hidden;
+  position: relative;
+  transition: background-color 0.4s ease;
 }
 
 .heading {
@@ -24,6 +27,7 @@
   margin: 0 auto;
   margin-top: var(--spacing-small);
   border-radius: 2px;
+  animation: slideIn 1s ease-in-out forwards;
 }
 
 .description {
@@ -34,6 +38,8 @@
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
 }
 
 .certificationsContainer {
@@ -54,14 +60,33 @@
   align-items: center;
   flex: 1 1 250px;
   max-width: 300px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease,
-    background-color 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease,
+    background-color 0.4s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.certificationCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: skewX(-25deg);
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+.certificationCard:hover::before {
+  left: 150%;
 }
 
 .certificationCard:hover {
   transform: translateY(-10px) scale(1.05);
   box-shadow: var(--box-shadow-hover);
-  background-color: var(--color-secondary); /* Light background on hover */
+  background-color: var(--color-secondary);
 }
 
 .logo {
@@ -69,11 +94,12 @@
   height: 100px;
   object-fit: contain;
   margin-bottom: var(--spacing-small);
-  transition: transform 0.3s ease; /* Add scaling effect on hover */
+  transition: transform 0.4s ease;
+  z-index: 2;
 }
 
 .certificationCard:hover .logo {
-  transform: scale(1.1); /* Slightly enlarge logo on hover */
+  transform: scale(1.1);
 }
 
 .certName {
@@ -82,12 +108,37 @@
   color: var(--color-text);
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
 }
 
 .certDescription {
   font-size: var(--font-size-description);
   color: var(--color-subtext);
   margin-bottom: var(--spacing-small);
+  opacity: 0;
+  animation: fadeIn 2.2s ease-in forwards;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
 }
 
 /* Media Queries */

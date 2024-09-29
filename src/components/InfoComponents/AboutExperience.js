@@ -1,9 +1,12 @@
 import React from "react";
 import styles from "./AboutExperience.module.css";
+import useScrollAnimation from "../hooks/useScrollAnimation"; // Importă hook-ul
 
 const AboutExperience = () => {
+  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
+
   return (
-    <section className={styles.aboutExperience}>
+    <section className={styles.aboutExperience} ref={scrollRef}>
       <h2 className={styles.title}>Meine Erfahrung</h2>
       <div className={styles.timeline}>
         <div className={styles.timelineItem}>

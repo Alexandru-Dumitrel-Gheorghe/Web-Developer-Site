@@ -3,15 +3,13 @@
   background-color: var(--color-background);
   color: var(--color-text);
   text-align: center;
-  position: relative;
-  overflow: hidden;
   margin-top: 6rem;
 }
 
 .heading {
-  font-size: var(--font-size-title); /* Use variable for title size */
-  color: #ffffff; /* Set title color to white */
-  margin-bottom: var(--spacing-medium); /* Use variable for spacing */
+  font-size: var(--font-size-title);
+  color: #ffffff;
+  margin-bottom: var(--spacing-medium);
   position: relative;
 }
 
@@ -26,13 +24,14 @@
   border-radius: 2px;
 }
 
-.reviewsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--spacing-medium); /* Use variable for gap */
-  max-width: 1200px;
-  margin: 0 auto;
+.sliderContainer {
+  max-width: 900px; /* Increase width to make the card appear bigger */
+  margin: 0 auto; /* Center the slider */
+  padding: 20px; /* Add padding for better spacing */
+}
+
+.slider {
+  padding: 0 30px; /* Add horizontal padding to prevent cutting off edges */
 }
 
 .reviewCard {
@@ -41,15 +40,13 @@
     rgba(27, 32, 40, 0.9),
     rgba(11, 26, 48, 0.8)
   );
-  padding: 30px;
+  padding: 40px; /* Adjust padding for spaciousness */
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-normal);
   text-align: center;
-  width: calc(30% - 40px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  animation: fadeIn 0.5s ease forwards;
+  max-width: 800px; /* Set a max-width for better content alignment */
+  margin: 0 auto; /* Center each card */
 }
 
 .reviewCard:hover {
@@ -58,14 +55,14 @@
 }
 
 .reviewerName {
-  font-size: var(--font-size-card-title); /* Use variable for card title size */
+  font-size: var(--font-size-card-title);
   color: var(--color-primary);
-  margin-bottom: var(--spacing-small); /* Use variable for spacing */
+  margin-bottom: var(--spacing-small);
 }
 
 .rating {
   color: gold;
-  margin-bottom: var(--spacing-small); /* Use variable for spacing */
+  margin-bottom: var(--spacing-small);
   font-size: 1.5rem;
 }
 
@@ -80,48 +77,28 @@
 }
 
 .reviewText {
-  font-size: var(
-    --font-size-description
-  ); /* Use variable for description size */
+  font-size: var(--font-size-description);
   color: var(--color-subtext);
   line-height: 1.5;
+  margin-top: 20px;
 }
 
-/* Animation for fading in */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Custom styles for slick dots */
+.slick-dots {
+  bottom: 10px; /* Adjust dot position */
 }
 
-/* Media Queries */
-@media (max-width: 1024px) {
-  .reviewCard {
-    width: calc(45% - 20px); /* Two cards per row on tablets */
-  }
+.slick-dots li button:before {
+  color: var(--color-primary); /* Change dot color */
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .reviewCard {
-    width: calc(100% - 20px); /* One card per row on mobile */
+    padding: 30px; /* Adjust padding for mobile */
   }
 
-  .heading {
-    font-size: var(
-      --font-size-title
-    ); /* Ensure mobile uses the same variable */
-  }
-}
-
-@media (max-width: 480px) {
-  .heading {
-    font-size: var(
-      --font-size-title
-    ); /* Maintain consistency for small screens */
+  .sliderContainer {
+    padding: 0 15px; /* Adjust padding for smaller screens */
   }
 }

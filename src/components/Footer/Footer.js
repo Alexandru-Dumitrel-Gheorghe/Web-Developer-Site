@@ -33,18 +33,20 @@ const Footer = () => {
         <div className={styles.quickLinks}>
           <h2 className={styles.heading}>Schnelle Links</h2>
           <ul className={styles.linkList}>
-            {["Startseite", "Über mich", "Dienstleistungen", "Portfolio"].map(
-              (link) => (
-                <li key={link}>
-                  <a
-                    href={`#${link.toLowerCase().replace(" ", "-")}`}
-                    className={styles.link}
-                  >
-                    {link}
-                  </a>
-                </li>
-              )
-            )}
+            {[
+              { name: "Startseite", href: "#Startseite" },
+              { name: "Über Mich", href: "/über-mich" },
+              { name: "Projekte", href: "/projekte" },
+              { name: "Kontakt", href: "/kontakt" },
+              { name: "Blog", href: "/blog" },
+              { name: "Impressum", href: "#impressum" },
+            ].map((link) => (
+              <li key={link.name}>
+                <a href={link.href} className={styles.link}>
+                  {link.name}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 

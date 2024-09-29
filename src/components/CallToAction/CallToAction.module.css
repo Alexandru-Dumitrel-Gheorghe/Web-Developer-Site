@@ -1,8 +1,9 @@
 .callToActionSection {
   position: relative;
   background: var(--color-background);
-  background: url("https://images.unsplash.com/photo-1607798748738-b15c40d33d57?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+  background: url("https://images.unsplash.com/photo-1516820827855-3ea1bd6f79ea?q=80&w=2082&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
     no-repeat center center/cover;
+  background-attachment: fixed; /* Efect parallax */
   color: var(--color-text);
   text-align: center;
   padding: var(--spacing-large) 0;
@@ -17,7 +18,7 @@
     0,
     0,
     0,
-    0.5
+    0.9
   ); /* Overlay întunecat pentru lizibilitate */
   padding: var(--spacing-large) var(--spacing-medium);
 }

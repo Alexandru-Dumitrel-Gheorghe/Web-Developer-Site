@@ -1,50 +1,56 @@
 import React from "react";
 import styles from "./AboutSkills.module.css";
+import useScrollAnimation from "../hooks/useScrollAnimation"; // Importă hook-ul
+
+const skillsData = [
+  {
+    skill: "HTML5 / CSS3",
+    description: "Erstellung von strukturierten und modernen Webseiten.",
+    level: 90,
+  },
+  {
+    skill: "JavaScript / React.js",
+    description: "Entwicklung dynamischer Webanwendungen.",
+    level: 85,
+  },
+  {
+    skill: "Node.js / MongoDB",
+    description: "Backend-Entwicklung mit NoSQL-Datenbanken.",
+    level: 80,
+  },
+  {
+    skill: "Responsive Webdesign",
+    description:
+      "Erstellung von Websites, die auf allen Geräten großartig aussehen.",
+    level: 95,
+  },
+  {
+    skill: "Bootstrap / Git",
+    description: "Schnelles Design und Versionskontrolle.",
+    level: 70,
+  },
+  { skill: "SEO", description: "Optimierung für Suchmaschinen.", level: 75 },
+];
 
 const AboutSkills = () => {
+  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
+
   return (
-    <section className={styles.aboutSkills}>
+    <section className={styles.aboutSkills} ref={scrollRef}>
       <h2 className={styles.title}>Meine Fähigkeiten</h2>
       <div className={styles.skillContainer}>
-        <div className={styles.skillCard}>
-          <h3>HTML5 / CSS3</h3>
-          <p>
-            Erstellung von strukturierten und modernen Webseiten mit HTML5 und
-            CSS3.
-          </p>
-        </div>
-        <div className={styles.skillCard}>
-          <h3>JavaScript / React.js</h3>
-          <p>
-            Entwicklung dynamischer Webanwendungen mit JavaScript und React.js.
-          </p>
-        </div>
-        <div className={styles.skillCard}>
-          <h3>Node.js / MongoDB</h3>
-          <p>
-            Backend-Entwicklung mit Node.js und NoSQL-Datenbanken wie MongoDB.
-          </p>
-        </div>
-        <div className={styles.skillCard}>
-          <h3>Responsive Webdesign</h3>
-          <p>
-            Erstellung von Websites, die auf allen Geräten großartig aussehen.
-          </p>
-        </div>
-        <div className={styles.skillCard}>
-          <h3>Bootstrap / Git</h3>
-          <p>
-            Verwendung von Bootstrap für schnelles Design und Git für
-            Versionskontrolle.
-          </p>
-        </div>
-        <div className={styles.skillCard}>
-          <h3>SEO</h3>
-          <p>
-            Optimierung Ihrer Website für Suchmaschinen, um bessere Sichtbarkeit
-            und höhere Rankings zu erzielen.
-          </p>
-        </div>
+        {skillsData.map((skill, index) => (
+          <div className={styles.skillCard} key={index}>
+            <div
+              className={styles.circularProgress}
+              style={{ "--level": skill.level }}
+            >
+              <span className={styles.skillLevel}>{skill.level}%</span>
+            </div>
+            <h3>{skill.skill}</h3>
+            <p>{skill.description}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

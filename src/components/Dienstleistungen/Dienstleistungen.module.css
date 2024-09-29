@@ -4,6 +4,7 @@
   color: var(--color-text);
   text-align: center;
   margin-top: 2rem;
+  position: relative;
 }
 
 .heading {
@@ -11,12 +12,12 @@
   color: var(--color-text);
   margin-bottom: var(--spacing-large);
   letter-spacing: 2px;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Mai pronunțată */
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
   position: relative;
   font-weight: bold;
 }
 
-/* Linie sub titlu */
+/* Animated line under heading */
 .heading::after {
   content: "";
   display: block;
@@ -26,9 +27,10 @@
   margin: 0 auto;
   margin-top: var(--spacing-small);
   border-radius: 2px;
+  animation: slideIn 1s ease-in-out forwards;
 }
 
-/* Container pentru carduri */
+/* Container for cards */
 .servicesContainer {
   display: flex;
   justify-content: space-evenly;
@@ -38,18 +40,34 @@
   flex-wrap: wrap;
 }
 
-/* Cardurile individuale */
+/* Individual cards */
 .service {
   background: var(--color-card-background);
   padding: var(--spacing-large) var(--spacing-small);
   border-radius: var(--border-radius);
   text-align: center;
-  width: 22%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 23%;
+  transition: transform 0.4s ease, box-shadow 0.4s ease,
+    background-color 0.4s ease;
   box-shadow: var(--box-shadow-normal);
   position: relative;
   overflow: hidden;
   margin-bottom: var(--spacing-medium);
+  height: 42vh;
+}
+
+/* Animated border */
+.service::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 3px solid transparent;
+  border-radius: var(--border-radius);
+  transition: border-color 0.4s ease;
+  z-index: 1;
 }
 
 .service:hover {
@@ -58,11 +76,27 @@
   background: linear-gradient(135deg, #1b2028, #0b1a30 80%);
 }
 
+.service:hover::before {
+  border-color: var(--color-primary);
+}
+
+/* Icon animation */
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--spacing-medium);
+  transition: transform 0.4s ease;
+}
+
 .icon {
   font-size: 3rem;
   color: var(--color-primary);
-  margin-bottom: var(--spacing-medium);
-  transition: color 0.3s ease;
+  transition: color 0.4s ease;
+}
+
+.service:hover .iconContainer {
+  transform: rotate(15deg);
 }
 
 .service:hover .icon {
@@ -73,16 +107,17 @@ h3 {
   font-size: var(--font-size-card-title);
   color: var(--color-text);
   margin-bottom: var(--spacing-medium);
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Efect de umbră pentru titluri */
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 p {
   font-size: var(--font-size-description);
   color: var(--color-subtext);
   line-height: 1.6;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Umbră subtilă pentru text */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
+/* Primary button styles */
 .primaryButton {
   background-color: var(--color-primary);
   color: var(--color-text);
@@ -91,7 +126,7 @@ p {
   font-size: var(--font-size-button);
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.4s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -100,12 +135,20 @@ p {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
-/* Media Query pentru ecrane mai mici */
+/* Keyframe animations */
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
+}
+
+/* Media Query for smaller screens */
 @media (max-width: 1024px) {
   .service {
-    width: calc(
-      33.33% - var(--spacing-medium)
-    ); /* Trei carduri pe rând pe tablete */
+    width: calc(33.33% - var(--spacing-medium));
   }
 }
 
@@ -117,8 +160,8 @@ p {
   }
 
   .service {
-    width: var(--card-width-mobile); /* Lățime 100% pe mobil */
-    max-width: var(--card-max-width-mobile); /* Lățime maximă pentru mobil */
+    width: var(--card-width-mobile);
+    max-width: var(--card-max-width-mobile);
     margin-bottom: var(--spacing-medium);
   }
 

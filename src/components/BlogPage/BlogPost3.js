@@ -1,9 +1,12 @@
 import React from "react";
 import styles from "./BlogPost3.module.css"; // Ensure this path is correct
+import useScrollAnimation from "../hooks/useScrollAnimation"; // Importă hook-ul
 
 const BlogPost3 = () => {
+  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
+
   return (
-    <div className={styles.blogPost}>
+    <div className={styles.blogPost} ref={scrollRef}>
       <h2 className={styles.title}>
         Die Rolle von APIs in der modernen Webentwicklung
       </h2>

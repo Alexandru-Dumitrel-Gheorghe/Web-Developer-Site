@@ -1,19 +1,23 @@
+// src/components/Hero/Hero.jsx
+
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Import the useNavigate hook
+import { useNavigate } from "react-router-dom";
 import styles from "./Hero.module.css";
 import profileImage from "../../assets/profile.jpg";
-import SocialLinks from "../SocialLinks/SocialLinks"; // Import SocialLinks component
+import SocialLinks from "../SocialLinks/SocialLinks";
+import useScrollAnimation from "../hooks/useScrollAnimation"; // Importă hook-ul
 
 const Hero = () => {
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate();
+  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
 
   const handleButtonClick = () => {
-    navigate("/projekte"); // Navigate to the Projekte page
+    navigate("/projekte");
   };
 
   return (
-    <section className={styles.heroContainer}>
-      <SocialLinks /> {/* Add social links */}
+    <section className={`${styles.heroContainer} fade-in`} ref={scrollRef}>
+      <SocialLinks />
       <div className={styles.imageContainer}>
         <img
           src={profileImage}

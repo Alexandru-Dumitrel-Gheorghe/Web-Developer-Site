@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./WarumMichWählen.module.css";
+import useScrollAnimation from "../hooks/useScrollAnimation"; // Importă hook-ul
 
 const carouselData = [
   {
@@ -27,6 +28,7 @@ const carouselData = [
 const WarumMichWählen = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [transitionClass, setTransitionClass] = useState("");
+  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -56,7 +58,7 @@ const WarumMichWählen = () => {
   };
 
   return (
-    <section className={styles.whyChooseMe}>
+    <section className={styles.whyChooseMe} ref={scrollRef}>
       <h2 className={styles.title}>Warum mich wählen?</h2>
       <div className={styles.carouselContainer}>
         <div className={`${styles.carousel} ${transitionClass}`}>

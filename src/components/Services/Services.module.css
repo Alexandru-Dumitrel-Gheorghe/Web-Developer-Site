@@ -3,6 +3,7 @@
   color: var(--color-text);
   text-align: center;
   margin-top: 6rem;
+  position: relative;
 }
 
 .heading {
@@ -11,18 +12,20 @@
   margin-bottom: var(--spacing-large);
   letter-spacing: 2px;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  position: relative; /* Necessary for the line to be positioned correctly */
+  position: relative;
 }
 
+/* Animated line under heading */
 .heading::after {
   content: "";
   display: block;
   width: 80px;
   height: 4px;
-  background-color: var(--color-primary); /* Same color as the button */
+  background-color: var(--color-primary);
   margin: 0 auto;
-  margin-top: var(--spacing-small); /* Space between the title and the line */
+  margin-top: var(--spacing-small);
   border-radius: 2px;
+  animation: slideIn 1s ease-in-out forwards;
 }
 
 .cardsContainer {
@@ -41,14 +44,16 @@
   text-align: center;
   color: var(--color-text);
   position: relative;
+  overflow: hidden;
   border: 3px solid transparent;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease,
+    background-color 0.4s ease;
   box-shadow: var(--box-shadow-normal);
   flex: 1 1 calc(30% - var(--spacing-medium));
   max-width: calc(30% - var(--spacing-medium));
-  overflow: hidden;
 }
 
+/* Animated light effect */
 .card::before {
   content: "";
   position: absolute;
@@ -56,9 +61,10 @@
   left: -50%;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.1);
   transform: skewX(-25deg);
   transition: all 0.5s ease;
+  z-index: 1;
 }
 
 .card:hover::before {
@@ -66,10 +72,13 @@
 }
 
 .card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) scale(1.05);
   box-shadow: var(--box-shadow-hover);
+  background: linear-gradient(135deg, #1b2028, #0b1a30 80%);
+  border-color: var(--color-primary);
 }
 
+/* Icon container animation */
 .profileImage {
   width: 100px;
   height: 100px;
@@ -81,18 +90,29 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.profileImage:hover {
+  transform: rotate(15deg) scale(1.1);
 }
 
 .profileImage img {
   width: 80%;
   height: 80%;
   object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.profileImage:hover img {
+  transform: scale(1.1);
 }
 
 .cardTitle {
   font-size: var(--font-size-card-title);
   font-weight: 700;
   margin: var(--spacing-small) 0;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .cardDescription {
@@ -100,14 +120,14 @@
   color: var(--color-subtext);
   margin-bottom: var(--spacing-medium);
   line-height: 1.6;
+  transition: color 0.4s ease;
 }
 
-.profileActions {
-  display: flex;
-  justify-content: center;
-  margin-top: var(--spacing-small);
+.card:hover .cardDescription {
+  color: var(--color-secondary);
 }
 
+/* Button styles */
 .primaryButton {
   background-color: var(--color-primary);
   color: var(--color-text);
@@ -116,18 +136,27 @@
   border: none;
   cursor: pointer;
   font-size: var(--font-size-button);
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.4s ease, transform 0.4s ease;
   box-shadow: var(--box-shadow-normal);
 }
 
 .primaryButton:hover {
   background-color: var(--color-secondary);
-  transform: scale(1.05);
+  transform: scale(1.1);
   box-shadow: var(--box-shadow-hover);
 }
 
-/* Responsive Design */
+/* Keyframe animations */
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
+}
 
+/* Responsive Design */
 @media (max-width: 1024px) {
   .card {
     flex: 1 1 calc(45% - var(--spacing-medium));

@@ -1,9 +1,11 @@
 import React, { useRef, useEffect } from "react";
 import styles from "./VideoInfo.module.css";
 import videoSrc from "../../assets/test2.mp4";
+import useScrollAnimation from "../hooks/useScrollAnimation"; // Importă hook-ul
 
 const VideoInfo = () => {
   const videoRef = useRef(null);
+  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
 
   useEffect(() => {
     const videoElement = videoRef.current;
@@ -38,7 +40,7 @@ const VideoInfo = () => {
   }, []);
 
   return (
-    <section className={styles.videoSection}>
+    <section className={styles.videoSection} ref={scrollRef}>
       <div className={styles.container}>
         <div className={styles.textSection}>
           <h1 className={styles.title}>Mein Arbeitsprozess</h1>

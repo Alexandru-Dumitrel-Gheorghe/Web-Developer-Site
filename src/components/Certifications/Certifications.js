@@ -5,6 +5,7 @@ import itSchoolLogo from "../../assets/itSchoolLogo.png";
 import pearsonVueLogo from "../../assets/pearsonVueLogo.png";
 import certiPrimeLogo from "../../assets/certiPrimeLogo.png";
 import infoTechLogo from "../../assets/infoTechLogo.png";
+import useScrollAnimation from "../hooks/useScrollAnimation"; // Importă hook-ul
 
 const certificationsData = [
   {
@@ -30,8 +31,10 @@ const certificationsData = [
 ];
 
 const Certifications = () => {
+  const scrollRef = useScrollAnimation(); // Utilizează hook-ul
+
   return (
-    <section className={styles.certificationsSection}>
+    <section className={styles.certificationsSection} ref={scrollRef}>
       <h2 className={styles.heading}>Meine Zertifizierungen</h2>
       <p className={styles.description}>
         Ich habe verschiedene Zertifizierungen erworben, die meine Fähigkeiten
